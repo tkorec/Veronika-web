@@ -1,6 +1,8 @@
 $font-color: #a55ca8;
 $background-color: rgba(203, 166, 228, 0.49);
+$background-color-hover: rgba(180, 124, 221, 0.49);
 $mobile-breaking-point: 850px;
+$montserrat: "Montserrat", sans-serif; // Font for menu
 
 * {
     box-sizing: border-box;
@@ -15,7 +17,7 @@ body {
 /* MENU for large screens */
 nav {
     background: white;
-    padding: 15px 20px;
+    padding: 25px 20px;
     box-shadow: 1px 1px 4px $font-color;
     ul {
         list-style-type: none;
@@ -38,9 +40,10 @@ nav {
             a {
                 color: $font-color;
                 text-decoration: none;
-                font-size: 1.2rem;
+                font-size: 1.1rem;
                 text-transform: uppercase;
                 letter-spacing: 1px;
+                font-family: $montserrat;
             }
         }
         .toggle {
@@ -102,6 +105,7 @@ nav {
         font-size: 1.2rem;
         text-transform: uppercase;
         letter-spacing: 1px;
+        font-family: $montserrat;
     }
     .close {
         position: absolute;
@@ -111,3 +115,78 @@ nav {
 }
 
 /* End of menu for mobile phones and small screens */
+
+/* MAIN PAGE */
+.row-one {
+    display: flex;
+    .left {
+        flex: 1;
+        //padding: 40px 0 0 40px;
+        img {
+            width: 100%;
+            height: 680px;
+        }
+    }
+    .right {
+        flex: 1;
+        //background-color: white;
+        height: 680px;
+        background-color: white;
+        position: relative;
+        .contact-bar {
+            width: 100%;
+            display: inline-flex;
+            .contact-bar-content {
+                background-color: $background-color;
+                width: 66.66%;
+                font-family: $montserrat;
+                color: $font-color;
+                padding: 10px 0 10px 10px;
+            }
+            .contact-bar-button {
+                background-color: $font-color;
+                width: 33.33%;
+                text-align: center;
+                padding: 20px 0 20px 0;
+                font-family: $montserrat;
+                text-transform: uppercase;
+                color: white;
+                letter-spacing: 0.5px;
+                cursor: pointer;
+                &:hover {
+                    background-color: $background-color-hover;
+                    color: $font-color;
+                }
+            }
+        }
+        .column-one-right-content {
+            font-family: $montserrat;
+            text-align: justify;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            padding:0 80px 0 80px;
+            line-height: 25px;
+            h1 {
+                padding-bottom: 20px;
+            }
+            .column-one-right-text {
+                padding-bottom: 10px;
+            }
+            .button {
+                margin-top: 20px;
+                padding: 10px;
+                font-family: $montserrat;
+                text-transform: uppercase;
+                color: $font-color;
+                background-color: $background-color;
+                width: fit-content;
+                cursor: pointer;
+                &:hover {
+                    background-color: $font-color;
+                    color: white;
+                }
+            }
+        }
+    }
+}
