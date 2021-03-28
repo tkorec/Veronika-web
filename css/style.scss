@@ -2,6 +2,7 @@ $font-color: #a55ca8;
 $background-color: rgba(203, 166, 228, 0.49);
 $background-color-hover: rgba(180, 124, 221, 0.49);
 $mobile-breaking-point: 850px;
+$contact-bar-button-breaking-point: 940px;
 $montserrat: "Montserrat", sans-serif; // Font for menu
 
 * {
@@ -119,33 +120,52 @@ nav {
 /* MAIN PAGE */
 .row-one {
     display: flex;
+    flex-direction: column;
+    @media screen and (min-width: $mobile-breaking-point) {
+        flex-direction: row;
+    }
     .left {
-        flex: 1;
-        //padding: 40px 0 0 40px;
+        @media screen and (min-width: $mobile-breaking-point) {
+            flex: 1;
+        }
         img {
             width: 100%;
-            height: 680px;
+            height: auto;
+            @media screen and (min-width: $mobile-breaking-point) {
+                height: 680px;
+            }
         }
     }
     .right {
-        flex: 1;
-        //background-color: white;
-        height: 680px;
+        @media screen and (min-width: $mobile-breaking-point) {
+            flex: 1;
+        }
         background-color: white;
+        height: fit-content;
+        @media screen and (min-width: $mobile-breaking-point) {
+            height: 680px;
+        }
         position: relative;
         .contact-bar {
             width: 100%;
             display: inline-flex;
             .contact-bar-content {
                 background-color: $background-color;
-                width: 66.66%;
+                width: 100%;
+                @media screen and (min-width: $contact-bar-button-breaking-point) {
+                    width: 66.66%;
+                }
                 font-family: $montserrat;
                 color: $font-color;
                 padding: 10px 0 10px 10px;
             }
             .contact-bar-button {
                 background-color: $font-color;
-                width: 33.33%;
+                display: none;
+                @media screen and (min-width: $contact-bar-button-breaking-point) {
+                    width: 33.33%;
+                    display: block;
+                }
                 text-align: center;
                 padding: 20px 0 20px 0;
                 font-family: $montserrat;
@@ -160,12 +180,16 @@ nav {
             }
         }
         .column-one-right-content {
+            background-color: white;
             font-family: $montserrat;
             text-align: justify;
             position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            padding:0 80px 0 80px;
+            @media screen and (min-width: $mobile-breaking-point) {
+                top: 50%;
+                transform: translateY(-50%);
+                padding:0 80px 0 80px;
+            }
+            padding: 20px;
             line-height: 25px;
             h1 {
                 padding-bottom: 20px;
