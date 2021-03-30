@@ -379,13 +379,73 @@ nav ul .toggle .bars::after {
   padding: 30px 0;
 }
 
-.column-three {
-  background-image: url("../images/library-background.jpg");
+.column-three-left {
+  background-color: white;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+@media screen and (min-width: 850px) {
+  .column-three-left {
+    height: 680px;
+  }
+}
+
+.column-three-left .column-three-left-image {
+  background-image: url("../images/library-background_one.jpeg");
   background-repeat: no-repeat;
   max-width: 100%;
   height: 150px;
   -webkit-backdrop-filter: blur(5px);
           backdrop-filter: blur(5px);
+}
+
+.column-three-left .column-three-left-image .button {
+  padding: 20px 10px;
+  font-family: "Montserrat", sans-serif;
+  text-transform: uppercase;
+  color: white;
+  background-color: #a55ca8;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  cursor: pointer;
+  right: 0;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  position: absolute;
+}
+
+.column-three-left .column-three-left-content {
+  font-family: "Montserrat", sans-serif;
+  text-align: justify;
+  padding: 20px;
+  line-height: 25px;
+}
+
+@media screen and (min-width: 850px) {
+  .column-three-left .column-three-left-content {
+    top: 55%;
+    -webkit-transform: translateY(-45%);
+            transform: translateY(-45%);
+    padding: 0 80px 0 80px;
+    position: absolute;
+  }
+}
+
+.column-three-left .column-three-left-content .publication {
+  padding: 30px 0;
+}
+
+.column-three-right {
+  background-color: white;
 }
 
 /* FOOTER */
@@ -404,17 +464,20 @@ nav ul .toggle .bars::after {
   text-decoration: none;
 }
 
-.row-five .name-and-surname, .row-five .mail-and-phone {
+.row-five .name-and-surname,
+.row-five .mail-and-phone {
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
 }
 
-.row-five .name-and-surname .bottom-form-item, .row-five .mail-and-phone .bottom-form-item {
+.row-five .name-and-surname .bottom-form-item,
+.row-five .mail-and-phone .bottom-form-item {
   margin-bottom: 20px;
 }
 
-.row-five .name-and-surname input, .row-five .mail-and-phone input {
+.row-five .name-and-surname input,
+.row-five .mail-and-phone input {
   height: 40px;
   background: transparent;
   border: 0;
@@ -423,11 +486,13 @@ nav ul .toggle .bars::after {
   font-size: 14px;
 }
 
-.row-five .name-and-surname input:focus, .row-five .mail-and-phone input:focus {
+.row-five .name-and-surname input:focus,
+.row-five .mail-and-phone input:focus {
   outline: none;
 }
 
-.row-five .name-and-surname label, .row-five .mail-and-phone label {
+.row-five .name-and-surname label,
+.row-five .mail-and-phone label {
   font-family: "Montserrat", sans-serif;
   color: #a55ca8;
 }
