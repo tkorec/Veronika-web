@@ -3,6 +3,8 @@ $background-color: rgba(203, 166, 228, 0.49);
 $background-color-hover: rgba(180, 124, 221, 0.49);
 $mobile-breaking-point: 850px;
 $contact-bar-button-breaking-point: 940px;
+$second-row-right-breakpoint: 1016px;
+$third-row-left-breakpoint: 1086px;
 $montserrat: "Montserrat", sans-serif; // Font for menu
 
 * {
@@ -80,8 +82,8 @@ nav {
         }
     }
 }
-
 /* End of menu for large screens */
+
 
 /* MENU for mobile phones and small screens */
 .mobile-menu {
@@ -114,8 +116,8 @@ nav {
         top: 0;
     }
 }
-
 /* End of menu for mobile phones and small screens */
+
 
 /* MAIN PAGE */
 .row {
@@ -188,10 +190,15 @@ nav {
         background-color: white;
         font-family: $montserrat;
         text-align: justify;
+        margin: 25px 0;
         @media screen and (min-width: $mobile-breaking-point) {
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
+            padding: 0 40px 0 40px;
+            margin: 0;
+        }
+        @media screen and (min-width: 1000px) {
             padding: 0 80px 0 80px;
         }
         padding: 20px;
@@ -219,6 +226,13 @@ nav {
     }
 }
 
+.row-two {
+    flex-direction: column-reverse;
+    @media screen and (min-width: $mobile-breaking-point) {
+        flex-direction: row;
+    }
+}
+
 .column-two-left {
     background-color: white;
     position: relative;
@@ -230,6 +244,7 @@ nav {
         text-align: justify;
         padding: 20px;
         line-height: 25px;
+        margin-bottom: 30px;
         @media screen and (min-width: $mobile-breaking-point) {
             top: 50%;
             transform: translateY(-50%);
@@ -288,6 +303,10 @@ nav {
         }
         .column-two-cell {
             padding: 30px 0;
+            border-bottom: 2px solid $background-color;
+            @media screen and (min-width: $mobile-breaking-point) {
+                border-bottom: none;
+            }
         }
     }
 }
@@ -298,7 +317,7 @@ nav {
     display: flex;
     flex-direction: column;
     @media screen and (min-width: $mobile-breaking-point) {
-        height: 680px;
+        height: 760px;
     }
     .column-three-left-image {
         background-image: url("../images/library-background_one.jpeg");
@@ -339,9 +358,83 @@ nav {
 
 .column-three-right {
     background-color: white;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    @media screen and (min-width: $mobile-breaking-point) {
+        height: 760px;
+    }
+    .column-three-right-content {
+        font-family: $montserrat;
+        text-align: justify;
+        line-height: 25px;
+        @media screen and (min-width: $mobile-breaking-point) {
+            top: 50%;
+            transform: translateY(-50%);
+            padding: 0 100px;
+            position: absolute;
+        }
+        h2 {
+            padding-bottom: 20px;
+            text-align: center;
+        }
+        blockquote {
+            margin-bottom: 20px;
+            i {
+                font-size: 13px;
+            }
+        }
+        .quotation {
+            quotes: "\201C""\201D""\2018""\2019";
+            padding: 10px 20px;
+            font-size: 14px;
+            &:before {
+                content: open-quote;
+                display: inline;
+                line-height: 0;
+                left: -10px;
+                position: relative;
+                top: 20px;
+                color: #ccc;
+                font-size: 3em;
+                color: $font-color;
+            }
+            &:after {
+                content: close-quote;
+                display: inline;
+                line-height: 0;
+                left: 10px;
+                position: relative;
+                top: 35px;
+                color: #ccc;
+                font-size: 3em;
+                color: $font-color;
+            }
+        }
+        #remove-first {
+            display: block;
+            @media screen and (max-width: 1120px) {
+                display: none;
+            }
+        }
+        .button {
+            padding: 10px;
+            font-family: $montserrat;
+            text-transform: uppercase;
+            color: $font-color;
+            background-color: $background-color;
+            width: fit-content;
+            cursor: pointer;
+            margin-right: auto;
+            margin-left: auto;
+
+            &:hover {
+                background-color: $font-color;
+                color: white;
+            }
+        }
+    }
 }
-
-
 
 /* FOOTER */
 .row-five {

@@ -1,3 +1,4 @@
+@charset "UTF-8";
 * {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -237,6 +238,7 @@ nav ul .toggle .bars::after {
   background-color: white;
   font-family: "Montserrat", sans-serif;
   text-align: justify;
+  margin: 25px 0;
   padding: 20px;
   line-height: 25px;
 }
@@ -247,6 +249,13 @@ nav ul .toggle .bars::after {
     top: 50%;
     -webkit-transform: translateY(-50%);
             transform: translateY(-50%);
+    padding: 0 40px 0 40px;
+    margin: 0;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .column-one-right .column-one-right-content {
     padding: 0 80px 0 80px;
   }
 }
@@ -277,6 +286,22 @@ nav ul .toggle .bars::after {
   color: white;
 }
 
+.row-two {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: column-reverse;
+          flex-direction: column-reverse;
+}
+
+@media screen and (min-width: 850px) {
+  .row-two {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+}
+
 .column-two-left {
   background-color: white;
   position: relative;
@@ -293,6 +318,7 @@ nav ul .toggle .bars::after {
   text-align: justify;
   padding: 20px;
   line-height: 25px;
+  margin-bottom: 30px;
 }
 
 @media screen and (min-width: 850px) {
@@ -377,6 +403,13 @@ nav ul .toggle .bars::after {
 
 .column-two-right .column-two-right-content .column-two-cell {
   padding: 30px 0;
+  border-bottom: 2px solid rgba(203, 166, 228, 0.49);
+}
+
+@media screen and (min-width: 850px) {
+  .column-two-right .column-two-right-content .column-two-cell {
+    border-bottom: none;
+  }
 }
 
 .column-three-left {
@@ -393,7 +426,7 @@ nav ul .toggle .bars::after {
 
 @media screen and (min-width: 850px) {
   .column-three-left {
-    height: 680px;
+    height: 760px;
   }
 }
 
@@ -446,6 +479,108 @@ nav ul .toggle .bars::after {
 
 .column-three-right {
   background-color: white;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+@media screen and (min-width: 850px) {
+  .column-three-right {
+    height: 760px;
+  }
+}
+
+.column-three-right .column-three-right-content {
+  font-family: "Montserrat", sans-serif;
+  text-align: justify;
+  line-height: 25px;
+}
+
+@media screen and (min-width: 850px) {
+  .column-three-right .column-three-right-content {
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+    padding: 0 100px;
+    position: absolute;
+  }
+}
+
+.column-three-right .column-three-right-content h2 {
+  padding-bottom: 20px;
+  text-align: center;
+}
+
+.column-three-right .column-three-right-content blockquote {
+  margin-bottom: 20px;
+}
+
+.column-three-right .column-three-right-content blockquote i {
+  font-size: 13px;
+}
+
+.column-three-right .column-three-right-content .quotation {
+  quotes: "“" "”" "‘" "’";
+  padding: 10px 20px;
+  font-size: 14px;
+}
+
+.column-three-right .column-three-right-content .quotation:before {
+  content: open-quote;
+  display: inline;
+  line-height: 0;
+  left: -10px;
+  position: relative;
+  top: 20px;
+  color: #ccc;
+  font-size: 3em;
+  color: #a55ca8;
+}
+
+.column-three-right .column-three-right-content .quotation:after {
+  content: close-quote;
+  display: inline;
+  line-height: 0;
+  left: 10px;
+  position: relative;
+  top: 35px;
+  color: #ccc;
+  font-size: 3em;
+  color: #a55ca8;
+}
+
+.column-three-right .column-three-right-content #remove-first {
+  display: block;
+}
+
+@media screen and (max-width: 1120px) {
+  .column-three-right .column-three-right-content #remove-first {
+    display: none;
+  }
+}
+
+.column-three-right .column-three-right-content .button {
+  padding: 10px;
+  font-family: "Montserrat", sans-serif;
+  text-transform: uppercase;
+  color: #a55ca8;
+  background-color: rgba(203, 166, 228, 0.49);
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  cursor: pointer;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.column-three-right .column-three-right-content .button:hover {
+  background-color: #a55ca8;
+  color: white;
 }
 
 /* FOOTER */
