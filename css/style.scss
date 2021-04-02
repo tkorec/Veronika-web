@@ -84,7 +84,6 @@ nav {
 }
 /* End of menu for large screens */
 
-
 /* MENU for mobile phones and small screens */
 .mobile-menu {
     width: 0;
@@ -117,7 +116,6 @@ nav {
     }
 }
 /* End of menu for mobile phones and small screens */
-
 
 /* MAIN PAGE */
 .row {
@@ -167,6 +165,7 @@ nav {
             padding: 10px 0 10px 10px;
         }
         .contact-bar-button {
+            text-decoration: none;
             background-color: $font-color;
             display: none;
             @media screen and (min-width: $contact-bar-button-breaking-point) {
@@ -208,6 +207,9 @@ nav {
         }
         .column-one-right-text {
             padding-bottom: 10px;
+        }
+        a {
+            text-decoration: none;
         }
         .button {
             margin-top: 20px;
@@ -256,6 +258,9 @@ nav {
         }
         .column-two-left-text {
             padding-bottom: 10px;
+        }
+        a {
+            text-decoration: none;
         }
         .button {
             margin-top: 20px;
@@ -311,75 +316,45 @@ nav {
     }
 }
 
-.column-three-left {
-    background-color: white;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    @media screen and (min-width: $mobile-breaking-point) {
-        height: 760px;
+.column-three {
+    background-image: url("../images/library-background_one.jpg");
+    background-repeat: no-repeat;
+    max-width: 100%;
+    height: 150px;
+    a {
+        text-decoration: none;
     }
-    .column-three-left-image {
-        background-image: url("../images/library-background_one.jpeg");
-        background-repeat: no-repeat;
-        max-width: 100%;
-        height: 150px;
-        backdrop-filter: blur(5px);
-        .button {
-            padding: 20px 10px;
-            font-family: $montserrat;
-            text-transform: uppercase;
-            color: white;
-            background-color: $font-color;
-            width: fit-content;
-            cursor: pointer;
-            right: 0;
-            top: 50%;
-            transform: translateY(-50%);
-            position: absolute;
-        }
-    }
-    .column-three-left-content {
+    .button {
+        padding: 10px;
         font-family: $montserrat;
-        text-align: justify;
-        padding: 20px;
-        line-height: 25px;
-        @media screen and (min-width: $mobile-breaking-point) {
-            top: 55%;
-            transform: translateY(-45%);
-            padding: 0 80px 0 80px;
-            position: absolute;
-        }
-        .publication {
-            padding: 30px 0;
-        }
+        text-transform: uppercase;
+        color: white;
+        background-color: $font-color;
+        width: fit-content;
+        cursor: pointer;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        position: relative;
     }
 }
 
-.column-three-right {
+.reference-row {
     background-color: white;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    @media screen and (min-width: $mobile-breaking-point) {
-        height: 760px;
-    }
-    .column-three-right-content {
-        font-family: $montserrat;
-        text-align: justify;
-        line-height: 25px;
-        @media screen and (min-width: $mobile-breaking-point) {
-            top: 50%;
-            transform: translateY(-50%);
-            padding: 0 100px;
-            position: absolute;
-        }
-        h2 {
-            padding-bottom: 20px;
-            text-align: center;
-        }
+    font-family: $montserrat;
+    padding: 80px 0 0 0;
+    text-align: center;
+}
+
+.row-four {
+    background-color: white;
+    font-family: $montserrat;
+    line-height: 25px;
+    //padding: 20px 80px;
+    .column {
+        padding: 60px 60px 30px 60px;
         blockquote {
-            margin-bottom: 20px;
+            margin-bottom: 45px;
             i {
                 font-size: 13px;
             }
@@ -387,7 +362,7 @@ nav {
         .quotation {
             quotes: "\201C""\201D""\2018""\2019";
             padding: 10px 20px;
-            font-size: 14px;
+            text-align: justify;
             &:before {
                 content: open-quote;
                 display: inline;
@@ -411,27 +386,29 @@ nav {
                 color: $font-color;
             }
         }
-        #remove-first {
-            display: block;
-            @media screen and (max-width: 1120px) {
-                display: none;
-            }
-        }
-        .button {
-            padding: 10px;
-            font-family: $montserrat;
-            text-transform: uppercase;
-            color: $font-color;
-            background-color: $background-color;
-            width: fit-content;
-            cursor: pointer;
-            margin-right: auto;
-            margin-left: auto;
+    }
+}
 
-            &:hover {
-                background-color: $font-color;
-                color: white;
-            }
+.reference-button-row {
+    background-color: white;
+    a {
+        text-decoration: none;
+    }
+    .button {
+        margin-top: 20px;
+        padding: 12px;
+        font-family: $montserrat;
+        text-transform: uppercase;
+        color: $font-color;
+        background-color: $background-color;
+        width: fit-content;
+        cursor: pointer;
+        margin-right: auto;
+        margin-left: auto;
+        margin-bottom: 60px;
+        &:hover {
+            background-color: $font-color;
+            color: white;
         }
     }
 }
@@ -439,28 +416,37 @@ nav {
 /* FOOTER */
 .row-five {
     .column-five-left {
+        flex: 2;
         font-family: $montserrat;
         color: $font-color;
-        text-transform: uppercase;
-        padding: 20px 0 0 10px;
-        li {
-            padding-bottom: 10px;
-            a {
-                text-decoration: none;
+        padding: 90px 0 90px 60px;
+        .name-and-surname,
+        .mail-and-phone {
+            display: inline-flex;
+            .bottom-form-item {
+                margin-bottom: 20px;
+                margin-right: 20px;
+            }
+            input {
+                width: 200px;
+                height: 40px;
+                background: transparent;
+                border: 0;
+                border-bottom: 2px solid $font-color;
+                &:focus {
+                    outline: none;
+                }
+                color: $font-color;
+                font-size: 14px;
+            }
+            label {
+                font-family: $montserrat;
+                color: $font-color;
             }
         }
-    }
-
-    .name-and-surname,
-    .mail-and-phone {
-        display: inline-flex;
-        .bottom-form-item {
-            margin-bottom: 20px;
-        }
-        input {
-            height: 40px;
-            //border-bottom: 3px solid white;
-            background: transparent;
+        textarea {
+            width: 420px;
+            background-color: transparent;
             border: 0;
             border-bottom: 2px solid $font-color;
             &:focus {
@@ -468,10 +454,63 @@ nav {
             }
             color: $font-color;
             font-size: 14px;
+            &::placeholder {
+                color: $font-color;
+            }
         }
-        label {
+        .alert {
+            max-width: 420px;
+            padding: 5px;
+            margin: 10px 0 10px 0;
             font-family: $montserrat;
-            color: $font-color;
+        }
+        .button {
+            padding: 10px;
+            font-family: $montserrat;
+            text-transform: uppercase;
+            color: white;
+            background-color: $font-color;
+            width: fit-content;
+            cursor: pointer;
+            &:hover {
+                background-color: $font-color;
+                color: white;
+            }
         }
     }
+    .column-five-middle {
+        flex: 2;
+        padding: 90px 0 0 0;
+        p {
+            font-family: $montserrat;
+            color: $font-color;
+            margin-bottom: 15px;
+        }
+        iframe {
+            width: 100%;
+        }
+    }
+    .column-five-right {
+        flex: 1;
+        padding: 90px 0;
+        font-family: $montserrat;
+        color: $font-color;
+        text-transform: uppercase;
+        line-height: 40px;
+        ul {
+            list-style-type: none;
+            text-align: right;
+            padding-right: 15px;
+            a {
+                text-decoration: none;
+            }
+        }
+    }
+}
+
+.footer {
+    background-color: $font-color;
+    color: white;
+    font-family: $montserrat;
+    padding: 10px 0 10px 60px;
 }

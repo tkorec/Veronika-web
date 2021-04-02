@@ -21,8 +21,8 @@
     <!-- Menu for desktops, laptops, and large tablets -->
     <nav>
         <ul>
-            <li class="logo"><a href="#">Logo</a></li>
-            <li class="item"><a href="#">Domů</a></li>
+            <li class="logo"><a href="index.html">Logo</a></li>
+            <li class="item"><a href="index.html">Domů</a></li>
             <li class="item"><a href="#">O mně</a></li>
             <li class="item"><a href="#">Nabídka</a></li>
             <li class="item"><a href="#">Reference</a></li>
@@ -58,9 +58,9 @@
                     <p>+420 773 009 720</p>
                     <p>poradenstvi.psychologie@gmail.com</p>
                 </div>
-                <div class="contact-bar-button">
+                <a href="#" class="contact-bar-button">
                     <p>Napište mi</p>
-                </div>
+                </a>
             </div>
             <div class="column-one-right-content">
                 <h1>O mně</h1>
@@ -72,9 +72,11 @@
                     et
                     incidunt officiis rem aliquam praesentium molestias. At quam exercitationem minima, quidem
                     voluptatum nobis. Soluta aliquam eos tenetur recusandae nemo.</p>
-                <div class="button">
-                    <p>Více o mně</p>
-                </div>
+                <a href="#">
+                    <div class="button">
+                        <p>Více o mně</p>
+                    </div>
+                </a>
             </div>
         </div>
     </div>
@@ -92,9 +94,11 @@
                     soluta
                     impedit ratione, commodi vero corporis ipsa in harum ut, omnis officia dolorum molestias quas?
                     Excepturi, quod minima. Ipsam, similique molestias.</p>
-                <div class="button">
-                    <p>Objevte další oblasti</p>
-                </div>
+                <a href="#">
+                    <div class="button">
+                        <p>Objevte další oblasti</p>
+                    </div>
+                </a>
             </div>
         </div>
         <div class="column column-two-right">
@@ -118,34 +122,44 @@
         </div>
     </div>
 
-    <!-- Main Page Publication and References -->
+    <!-- Main Page Publication -->
     <div class="row row-three">
-        <div class="column column-three-left">
-            <div class="column-three-left-image">
-                <div class="button">
+        <div class="column column-three">
+            <a href="#">
+                <div class="button" id="publication-button">
                     <p>Moje odborné publikace</p>
                 </div>
-            </div>
-            <div class="column-three-left-content">
-                <div class="publication">
-                    <h3>Lorem Ipsum</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore minus eveniet reiciendis ad
-                        reprehenderit maxime repellendus amet eos, cum quam officia molestiae deleniti hic itaque culpa
-                        voluptatem magni nulla consectetur.</p>
-                    <a href="#">Pokracovani</a>
-                </div>
-                <div class="publication">
-                    <h3>Lorem Ipsum</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore minus eveniet reiciendis ad
-                        reprehenderit maxime repellendus amet eos, cum quam officia molestiae deleniti hic itaque culpa
-                        voluptatem magni nulla consectetur.</p>
-                    <a href="#">Pokracovani</a>
-                </div>
+            </a>
+        </div>
+    </div>
+
+    <!-- Main Page References -->
+    <div class="row reference-row">
+        <div class="column">
+            <h2>Reference</h2>
+        </div>
+    </div>
+    <div class="row row-four">
+        <div class="column column-four-left">
+            <div class="column-four-left-content">
+                <blockquote>
+                    <p class="quotation">
+                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. In voluptatem vero provident magnam,
+                        iusto, consequuntur architecto nulla molestiae, laboriosam exercitationem neque. Necessitatibus
+                        voluptatem architecto vero est nemo praesentium earum consectetur?</p>
+                    <i>— Learned Hand</i>
+                </blockquote>
+                <blockquote>
+                    <p class="quotation">
+                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. In voluptatem vero provident magnam,
+                        iusto, consequuntur architecto nulla molestiae, laboriosam exercitationem neque. Necessitatibus
+                        voluptatem architecto vero est nemo praesentium earum consectetur?</p>
+                    <i>— Learned Hand</i>
+                </blockquote>
             </div>
         </div>
-        <div class="column column-three-right">
-            <div class="column-three-right-content">
-                <h2>Reference</h2>
+        <div class="column column-four-right">
+            <div class="column-four-left-content">
                 <blockquote>
                     <p class="quotation">
                         Lorem ipsum dolor sit, amet consectetur adipisicing elit. In voluptatem vero provident magnam,
@@ -160,11 +174,16 @@
                         voluptatem architecto vero est nemo praesentium earum consectetur?</p>
                     <i>— Learned Hand</i>
                 </blockquote>
-                
-                <div class="button">
-                    <p>Všechny reference</p>
-                </div>
             </div>
+        </div>
+    </div>
+    <div class="row reference-button-row">
+        <div class="column">
+            <a href="#">
+                <div class="button">
+                    <p>Všechny moje reference</p>
+                </div>
+            </a>
         </div>
     </div>
 
@@ -172,19 +191,6 @@
     <!-- Bottom Menu, Map, Contact Form -->
     <div class="row row-five">
         <div class="column column-five-left">
-            <ul>
-                <li class="secondary-menu"><a href="#">Domů</a></li>
-                <li class="secondary-menu"><a href="#">O mně</a></li>
-                <li class="secondary-menu"><a href="#">Nabídka</a></li>
-                <li class="secondary-menu"><a href="#">Reference</a></li>
-                <li class="secondary-menu"><a href="#">Kontakt</a></li>
-                <li class="secondary-menu"><a href="#">Publikace</a></li>
-            </ul>
-        </div>
-        <div class="column column-five-middle">
-            <!--<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2560.0429020291904!2d14.429504515678108!3d50.085483621475866!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470b94949a095555%3A0x7a6c0530cf4d8107!2zU2Vub3bDocW-bsOpIG7DoW0uIDIzLCAxMTAgMDAgTm92w6kgTcSbc3Rv!5e0!3m2!1scs!2scz!4v1617119580881!5m2!1scs!2scz" width="400" height="350" style="border:0;" allowfullscreen="" loading="lazy"></iframe> -->
-        </div>
-        <div class="column column-five-right">
             <form action="">
                 <div class="name-and-surname">
                     <div class="bottom-form-item">
@@ -200,9 +206,6 @@
                     <div class="bottom-form-item">
                         <label for="email">Email*</label><br>
                         <input type="text" id="email" name="email">
-                        <!--<div class="alert">
-                            <p class="alert-text">Mail musí být vyplněný!</p>
-                        </div> -->
                     </div>
                     <div class="bottom-form-item">
                         <label for="phone">Telefon</label><br>
@@ -210,14 +213,42 @@
                     </div>
                 </div>
                 <div class="bottom-form-item">
-                    <label for="message">Zpráva</label><br>
-                    <textarea name="message" id="message" cols="30" rows="5"></textarea>
+                    <textarea name="message" id="message" rows="5"
+                        placeholder="Zprávu napište sem ..."></textarea>
+                </div>
+                <div class="alert" id="alert">
+                    <p class="alert-text" id="alert-text"></p>
+                </div>
+                <div class="button" id="message-button">
+                    <p>Odeslat</p>
                 </div>
             </form>
+        </div>
+        <div class="column column-five-middle">
+            <p>Senovážné náměstí 23, Praha 1, budova D, 1. patro, místnost 103 (pracoviště není zdravotnickým zařízením)</p>
+            <p>IČ: 038 33 330</p>
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2560.0429020291904!2d14.429504515678108!3d50.085483621475866!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470b94949a095555%3A0x7a6c0530cf4d8107!2zU2Vub3bDocW-bsOpIG7DoW0uIDIzLCAxMTAgMDAgTm92w6kgTcSbc3Rv!5e0!3m2!1scs!2scz!4v1617119580881!5m2!1scs!2scz"
+                height="160" style="border:0;" allowfullscreen="" loading="lazy"></iframe> 
+        </div>
+        <div class="column column-five-right">
+            <ul>
+                <li class="bottom-item"><a href="#">Domů</a></li>
+                <li class="bottom-item"><a href="#">O mně</a></li>
+                <li class="bottom-item"><a href="#">Nabídka</a></li>
+                <li class="bottom-item"><a href="#">Reference</a></li>
+                <li class="bottom-item"><a href="#">Kontakt</a></li>
+                <li class="bottom-item"><a href="#">Publikace</a></li>
+            </ul>
         </div>
     </div>
 
     <!-- Footer -->
+    <!--<div class="row footer">
+        <div class="column">
+            <p>&#169; Veronika Vitošková 2021</p>
+        </div>
+    </div> -->
 
 
     <!-- Javascript -->
