@@ -63,15 +63,16 @@ $(document).ready(function () {
                     let successfull_alert = previous_alert_text.replace(previous_alert_text, response);
                     $("#alert-text").html(successfull_alert);
                     $("#alert").css("display", "block");
-                } else {
+                    console.log("FINE");
+                } /*else {
                     let unsuccessful_response = 'Nepovedlo se spojit se serverem.';
                     $("#alert").css("background-color", "lightcoral");
                     $("#alert").css("border-left", "2px solid red");
                     $("#alert-text").css("color", "red");
                     let unsuccessful_alert = previous_alert_text.replace(previous_alert_text, unsuccessful_response);
-                    $("#alert-text").html(unsuccessful_response);
+                    $("#alert-text").html(unsuccessful_alert);
                     $("alert").css("display", "block");
-                }
+                } */
             }
             xhr.open("POST", "../app/contact.php", true);
             xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
