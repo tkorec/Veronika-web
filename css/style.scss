@@ -1,0 +1,584 @@
+$font-color: #a55ca8;
+$background-color: rgba(203, 166, 228, 0.49);
+$background-color-hover: rgba(180, 124, 221, 0.49);
+$mobile-breaking-point: 855px;
+$contact-bar-button-breaking-point: 940px;
+$second-row-right-breakpoint: 1016px;
+$third-row-left-breakpoint: 1086px;
+$montserrat: "Montserrat", sans-serif; // Font for menu
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: $background-color;
+}
+
+/* MENU for large screens */
+nav {
+    background: white;
+    padding: 25px 20px;
+    box-shadow: 1px 1px 4px $font-color;
+    ul {
+        list-style-type: none;
+        display: flex;
+        flex-wrap: wrap;
+        li {
+            padding: 15px 0;
+            &.item {
+                display: none;
+                @media screen and (min-width: $mobile-breaking-point) {
+                    display: block;
+                }
+                width: auto;
+                margin: 0 16px;
+                text-align: center;
+            }
+            &.logo {
+                flex: 1;
+            }
+            a {
+                color: $font-color;
+                text-decoration: none;
+                font-size: 1.1rem;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                font-family: $montserrat;
+            }
+        }
+        .toggle {
+            cursor: pointer;
+            @media screen and (min-width: $mobile-breaking-point) {
+                display: none;
+            }
+            .bars {
+                background: $font-color;
+                display: inline-block;
+                height: 3px;
+                position: relative;
+                width: 22px;
+            }
+            .bars::before {
+                background: $font-color;
+                content: "";
+                display: inline-block;
+                height: 3px;
+                position: absolute;
+                width: 22px;
+                top: 7px;
+            }
+            .bars::after {
+                background: $font-color;
+                content: "";
+                display: inline-block;
+                height: 3px;
+                position: absolute;
+                width: 22px;
+                top: -7px;
+            }
+        }
+    }
+}
+/* End of menu for large screens */
+
+/* MENU for mobile phones and small screens */
+.mobile-menu {
+    width: 0;
+    height: 100%;
+    background-color: $font-color;
+    opacity: 1;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    overflow-x: hidden;
+    transition: 0.7s;
+    padding-top: 60px;
+    a {
+        display: block;
+        text-decoration: none;
+        text-align: center;
+        padding-top: 30px;
+        padding-bottom: 30px;
+        color: white;
+        font-size: 1.2rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-family: $montserrat;
+    }
+    .close {
+        position: absolute;
+        right: 20px;
+        top: 0;
+    }
+}
+/* End of menu for mobile phones and small screens */
+
+/* MAIN PAGE */
+.row {
+    display: flex;
+    flex-direction: column;
+    @media screen and (min-width: $mobile-breaking-point) {
+        flex-direction: row;
+    }
+}
+
+.column {
+    flex: 1;
+    height: fit-content;
+}
+
+.column-one-left {
+    height: 680px;
+    .image {
+        width: 100%;
+        height: auto;
+        @media screen and (min-width: $mobile-breaking-point) {
+            height: 680px;
+        }
+    }
+}
+
+.column-one-right {
+    background-color: white;
+    position: relative;
+    @media screen and (min-width: $mobile-breaking-point) {
+        height: 680px;
+    }
+    .contact-bar {
+        width: 100%;
+        display: inline-flex;
+        .contact-bar-content {
+            background-color: $background-color;
+            width: 100%;
+            @media screen and (min-width: $contact-bar-button-breaking-point) {
+                width: 66.66%;
+            }
+            font-family: $montserrat;
+            color: $font-color;
+            padding: 10px 0 10px 10px;
+        }
+        .contact-bar-button {
+            text-decoration: none;
+            background-color: $font-color;
+            display: none;
+            @media screen and (min-width: $contact-bar-button-breaking-point) {
+                width: 33.33%;
+                display: block;
+            }
+            text-align: center;
+            padding: 20px 0 20px 0;
+            font-family: $montserrat;
+            text-transform: uppercase;
+            color: white;
+            letter-spacing: 0.5px;
+            cursor: pointer;
+            &:hover {
+                background-color: $background-color-hover;
+                color: $font-color;
+            }
+        }
+    }
+    .column-one-right-content {
+        background-color: white;
+        font-family: $montserrat;
+        text-align: justify;
+        margin: 25px 0;
+        @media screen and (min-width: $mobile-breaking-point) {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            padding: 0 40px 0 40px;
+            margin: 0;
+        }
+        @media screen and (min-width: 1000px) {
+            padding: 0 80px 0 80px;
+        }
+        padding: 20px;
+        line-height: 25px;
+        h1 {
+            padding-bottom: 20px;
+        }
+        .column-one-right-text {
+            padding-bottom: 10px;
+        }
+        a {
+            text-decoration: none;
+        }
+        .button {
+            margin-top: 20px;
+            padding: 10px;
+            font-family: $montserrat;
+            text-transform: uppercase;
+            color: $font-color;
+            background-color: $background-color;
+            width: fit-content;
+            cursor: pointer;
+            &:hover {
+                background-color: $font-color;
+                color: white;
+            }
+        }
+    }
+}
+
+.row-two {
+    flex-direction: column-reverse;
+    @media screen and (min-width: $mobile-breaking-point) {
+        flex-direction: row;
+    }
+}
+
+.column-two-left {
+    background-color: white;
+    position: relative;
+    @media screen and (min-width: $mobile-breaking-point) {
+        height: 680px;
+    }
+    .column-two-left-content {
+        font-family: $montserrat;
+        text-align: justify;
+        padding: 20px;
+        line-height: 25px;
+        margin-bottom: 30px;
+        @media screen and (min-width: $mobile-breaking-point) {
+            top: 50%;
+            transform: translateY(-50%);
+            padding: 0 80px 0 80px;
+            position: absolute;
+        }
+        h2 {
+            padding-bottom: 20px;
+        }
+        .column-two-left-text {
+            padding-bottom: 10px;
+        }
+        a {
+            text-decoration: none;
+        }
+        .button {
+            margin-top: 20px;
+            padding: 10px;
+            font-family: $montserrat;
+            text-transform: uppercase;
+            color: $font-color;
+            background-color: $background-color;
+            width: fit-content;
+            cursor: pointer;
+            &:hover {
+                background-color: $font-color;
+                color: white;
+            }
+        }
+    }
+}
+
+.column-two-right {
+    background-color: white;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    @media screen and (min-width: $mobile-breaking-point) {
+        height: 680px;
+    }
+    .column-two-right-bar {
+        width: 100%;
+        text-align: center;
+        padding: 40px 0 40px 0;
+        font-family: $montserrat;
+        color: $font-color;
+        background-color: $background-color;
+    }
+    .column-two-right-content {
+        font-family: $montserrat;
+        text-align: justify;
+        padding: 20px;
+        line-height: 25px;
+        @media screen and (min-width: $mobile-breaking-point) {
+            top: 50%;
+            transform: translateY(-50%);
+            padding: 0 80px 0 80px;
+            position: absolute;
+        }
+        .column-two-cell {
+            padding: 30px 0;
+            border-bottom: 2px solid $background-color;
+            @media screen and (min-width: $mobile-breaking-point) {
+                border-bottom: none;
+            }
+        }
+    }
+}
+
+.column-three {
+    background-image: url("../images/publication-mobile.jpg");
+    background-repeat: no-repeat;
+    max-width: 100%;
+    height: 300px;
+    padding-top: 60px;
+    padding-bottom: 60px;
+    @media screen and (min-width: $mobile-breaking-point) {
+        background-image: url("../images/publication-image.jpg");
+        height: 220px;
+        padding: 0;
+    }
+    a {
+        text-decoration: none;
+    }
+    .button {
+        padding: 15px;
+        font-family: $montserrat;
+        text-transform: uppercase;
+        color: white;
+        background-color: $font-color;
+        width: fit-content;
+        cursor: pointer;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        position: relative;
+    }
+}
+
+.reference-row {
+    background-color: white;
+    font-family: $montserrat;
+    text-align: center;
+    font-size: 1.2rem;
+    padding-top: 60px;
+    padding-bottom: 30px;
+    @media screen and (min-width: $mobile-breaking-point) {
+        padding: 150px 0 0 0;
+    }
+}
+
+.row-four {
+    background-color: white;
+    font-family: $montserrat;
+    line-height: 25px;
+    .column {
+        @media screen and (min-width: $mobile-breaking-point) {
+            padding-top: 30px;
+            padding-bottom: 10px;
+        }
+        blockquote {
+            margin-bottom: 45px;
+            i {
+                font-size: 13px;
+            }
+        }
+        .quotation {
+            quotes: "\201C""\201D""\2018""\2019";
+            padding: 10px 20px;
+            text-align: justify;
+            &:before {
+                content: open-quote;
+                display: inline;
+                line-height: 0;
+                left: -10px;
+                position: relative;
+                top: 20px;
+                color: #ccc;
+                font-size: 3em;
+                color: $font-color;
+            }
+            &:after {
+                content: close-quote;
+                display: inline;
+                line-height: 0;
+                left: 10px;
+                position: relative;
+                top: 35px;
+                color: #ccc;
+                font-size: 3em;
+                color: $font-color;
+            }
+        }
+    }
+    .column-four-left {
+        padding-left: 20px;
+        padding-right: 20px;
+        @media screen and (min-width: $mobile-breaking-point) {
+            padding-left: 60px;
+            padding-right: 5px;
+        }
+    }
+    .column-four-right {
+        display: none;
+        @media screen and (min-width: $mobile-breaking-point) {
+            display: block;
+            padding-right: 60px;
+            padding-left: 5px;
+        }
+    }
+}
+
+.reference-button-row {
+    background-color: white;
+    @media screen and (min-width: $mobile-breaking-point) {
+        padding-bottom: 70px;
+    }
+    padding-bottom: 40px;
+    a {
+        text-decoration: none;
+    }
+    .button {
+        margin-top: 10px;
+        padding: 12px;
+        font-family: $montserrat;
+        text-transform: uppercase;
+        color: $font-color;
+        background-color: $background-color;
+        width: fit-content;
+        cursor: pointer;
+        margin-right: auto;
+        margin-left: auto;
+        margin-bottom: 60px;
+        &:hover {
+            background-color: $font-color;
+            color: white;
+        }
+    }
+}
+/* End of main page */
+
+/* FOOTER */
+.row-five {
+    .column-five-left {
+        flex: 2;
+        @media screen and (max-width: 1220px) {
+            flex: 1;
+        }
+        @media screen and (max-width: 1010px) {
+            padding-left: 20px;
+        }
+        @media screen and (max-width: $mobile-breaking-point) {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        font-family: $montserrat;
+        color: $font-color;
+        padding: 90px 0 90px 60px;
+        .name-and-surname,
+        .mail-and-phone {
+            display: inline-flex;
+            .bottom-form-item {
+                margin-bottom: 20px;
+                margin-right: 20px;
+            }
+            input {
+                width: 200px;
+                height: 40px;
+                background: transparent;
+                border: 0;
+                border-bottom: 2px solid $font-color;
+                &:focus {
+                    outline: none;
+                }
+                color: $font-color;
+                font-size: 14px;
+            }
+            label {
+                font-family: $montserrat;
+                color: $font-color;
+            }
+        }
+        textarea {
+            width: 420px;
+            background-color: transparent;
+            border: 0;
+            border-bottom: 2px solid $font-color;
+            &:focus {
+                outline: none;
+            }
+            color: $font-color;
+            font-size: 14px;
+            &::placeholder {
+                color: $font-color;
+            }
+        }
+        .alert {
+            max-width: 420px;
+            padding: 5px;
+            margin: 10px 0 10px 0;
+            font-family: $montserrat;
+        }
+        .button {
+            padding: 10px;
+            font-family: $montserrat;
+            text-transform: uppercase;
+            color: white;
+            background-color: $font-color;
+            width: fit-content;
+            cursor: pointer;
+            &:hover {
+                background-color: $font-color;
+                color: white;
+            }
+        } 
+    }
+    .column-five-middle {
+        flex: 2;
+        @media screen and (max-width: 1220px) {
+            flex: 1;
+            padding-right: 60px;
+        }
+        flex: 2;
+        padding: 90px 0 0 0;
+        @media screen and (max-width: 1010px) {
+            padding-right: 20px;
+        }
+        @media screen and (max-width: 950px) {
+            padding-top: 135px;
+        }
+        @media screen and (max-width: $mobile-breaking-point) {
+            position: absolute;
+
+        }
+        p {
+            font-family: $montserrat;
+            color: $font-color;
+            margin-bottom: 15px;
+        }
+        iframe {
+            width: 100%;
+            @media screen and (max-width: 950px) {
+                display: none;
+            }
+        }
+        .column-five-middle-content {
+            @media screen and (max-width: $mobile-breaking-point) {
+                left: 50%;
+                transform: translateX(-50%);
+                position: absolute;
+            }
+        } 
+    }
+    .column-five-right {
+        flex: 1;
+        @media screen and (max-width: 1220px) {
+            display: none;
+        }
+        display: block;
+        flex: 1;
+        padding: 90px 0;
+        font-family: $montserrat;
+        text-transform: uppercase;
+        line-height: 40px;
+        ul {
+            list-style-type: none;
+            text-align: right;
+            padding-right: 25px;
+            a {
+                text-decoration: none;
+                color: $font-color;
+            }
+        } 
+    }
+}
+
+
