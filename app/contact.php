@@ -22,3 +22,4 @@ $headers = array(
 mail($to, $subject, $mail_message, $headers);
 
 echo 'Váš kontakt a zpráva byly úspěšně odeslány.';
+

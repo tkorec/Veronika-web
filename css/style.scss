@@ -519,7 +519,7 @@ nav {
                 background-color: $font-color;
                 color: white;
             }
-        } 
+        }
     }
     .column-five-middle {
         flex: 2;
@@ -537,7 +537,6 @@ nav {
         }
         @media screen and (max-width: $mobile-breaking-point) {
             position: absolute;
-
         }
         p {
             font-family: $montserrat;
@@ -556,7 +555,7 @@ nav {
                 transform: translateX(-50%);
                 position: absolute;
             }
-        } 
+        }
     }
     .column-five-right {
         flex: 1;
@@ -577,8 +576,86 @@ nav {
                 text-decoration: none;
                 color: $font-color;
             }
-        } 
+        }
     }
 }
+/* End of footer */
 
+/* CONTACT PAGE */
+.row-one-contact iframe {
+    width: 100%;
+    height: 250px;
+}
 
+.row-two-contact {
+    background-color: white;
+    font-family: $montserrat;
+    text-align: justify;
+    .column-two-left-contact {
+        flex: 1;
+        .two-left-contact-content {
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 40px 80px 60px 60px;
+            h2,
+            h3 {
+                margin-bottom: 10px;
+            }
+            .contact-paragraph {
+                margin-bottom: 20px;
+            }
+        }
+    }
+    .column-two-right-contact {
+        flex: 2;
+        .two-right-contact-content {
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 40px 20px 60px 60px;
+            form {
+                background-color: $font-color;
+                padding: 35px;
+                border-radius: 16px;
+            }
+            .contact-item {
+                margin-bottom: 18px;
+                label {
+                    color: whitesmoke;
+                    text-transform: uppercase;
+                    padding: 0 0 10px 5px;
+                }
+                input {
+                    width: 100%;
+                    height: 40px;
+                    border: 3px solid whitesmoke;
+                    border-radius: 12px;
+                    background-color: transparent;
+                    color: whitesmoke;
+                    padding-left: 5px;
+                    &:focus {
+                        outline: none;
+                    }
+                    &::placeholder {
+                        padding-left: 5px;
+                        color: whitesmoke;
+                    }
+                }
+                textarea {
+                    width: 100%;
+                    border: transparent;
+                    border-bottom: 3px solid whitesmoke;
+                    background-color: transparent;
+                    color: whitesmoke;
+                    &::placeholder {
+                        color: whitesmoke;
+                    }
+                    &:focus {
+                        outline: none;
+                    }     
+                }
+            }
+        }
+    }
+}
