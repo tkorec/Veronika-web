@@ -15,6 +15,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Merienda&family=Montserrat:ital,wght@0,300;1,300&display=swap"
         rel="stylesheet">
+    <!-- Google Font Montserrat Bold -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -79,24 +82,38 @@
         <div class="column column-two-right-contact">
             <div class="two-right-contact-content">
                 <form action="">
-                    <div class="contact-item">
-                        <label for="">Jméno</label>
-                        <input type="text" name="" id="" placeholder="Jméno">
+                    <div class="form-column-left">
+                        <p>+420 773 009 720</p>
+                        <p>kontakt@veronikavitoskova.cz</p>
+                        <p>IČ: 038 33 330</p>
                     </div>
-                    <div class="contact-item">
-                        <label for="">Příjmení</label>
-                        <input type="text" name="" id="" placeholder="Příjmení">
-                    </div>
-                    <div class="contact-item">
-                        <label for="">Email*</label>
-                        <input type="text" name="" id="" placeholder="Email">
-                    </div>
-                    <div class="contact-item">
-                        <label for="">Telefon</label>
-                        <input type="text" name="" id="" placeholder="Telefon">
-                    </div>
-                    <div class="contact-item">
-                        <textarea name="" id="" cols="30" rows="8" placeholder="Zprávu napište sem ..."></textarea>
+                    <div class="form-column-right">
+                        <div class="contact-item">
+                            <label for="fname">Jméno</label>
+                            <input type="text" name="fname" id="fname" placeholder="Jméno">
+                        </div>
+                        <div class="contact-item">
+                            <label for="lname">Příjmení</label>
+                            <input type="text" name="lname" id="lname" placeholder="Příjmení">
+                        </div>
+                        <div class="contact-item">
+                            <label for="email-address">Email*</label>
+                            <input type="text" name="email-address" id="email-address" placeholder="Email">
+                        </div>
+                        <div class="contact-item">
+                            <label for="phone-number">Telefon</label>
+                            <input type="text" name="phone-number" id="phone-number" placeholder="Telefon">
+                        </div>
+                        <div class="contact-item">
+                            <textarea name="customer-message" id="" cols="30" rows="5"
+                                placeholder="Zprávu napište sem ..."></textarea>
+                        </div>
+                        <div class="alert" id="form-alert">
+                            <p class="alert-text" id="form-alert-text"></p>
+                        </div>
+                        <div class="button" id="contact-button">
+                            <p>Odeslat</p>
+                        </div>
                     </div>
                 </form>
             </div>
@@ -106,12 +123,13 @@
     <!-- Consulting Room Images -->
     <div class="row">
         <div class="column">
-            
+
         </div>
     </div>
 
 
-
+    <!-- Javascript -->
+    <script src="js/script.js"></script>
 </body>
 
 </html>

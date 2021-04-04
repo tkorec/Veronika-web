@@ -848,8 +848,30 @@ nav ul .toggle .bars::after {
 
 .row-two-contact .column-two-right-contact .two-right-contact-content form {
   background-color: #a55ca8;
-  padding: 35px;
+  opacity: 0.85;
+  padding: 35px 35px 20px 35px;
   border-radius: 16px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.row-two-contact .column-two-right-contact .two-right-contact-content form .form-column-left {
+  -webkit-box-flex: 40%;
+      -ms-flex: 40%;
+          flex: 40%;
+  color: white;
+  font-weight: 600;
+}
+
+.row-two-contact .column-two-right-contact .two-right-contact-content form .form-column-left p {
+  padding-top: 10px;
+}
+
+.row-two-contact .column-two-right-contact .two-right-contact-content form .form-column-right {
+  -webkit-box-flex: 60%;
+      -ms-flex: 60%;
+          flex: 60%;
 }
 
 .row-two-contact .column-two-right-contact .two-right-contact-content .contact-item {
@@ -857,7 +879,7 @@ nav ul .toggle .bars::after {
 }
 
 .row-two-contact .column-two-right-contact .two-right-contact-content .contact-item label {
-  color: whitesmoke;
+  color: white;
   text-transform: uppercase;
   padding: 0 0 10px 5px;
 }
@@ -865,10 +887,10 @@ nav ul .toggle .bars::after {
 .row-two-contact .column-two-right-contact .two-right-contact-content .contact-item input {
   width: 100%;
   height: 40px;
-  border: 3px solid whitesmoke;
+  border: 3px solid white;
   border-radius: 12px;
   background-color: transparent;
-  color: whitesmoke;
+  color: white;
   padding-left: 5px;
 }
 
@@ -878,49 +900,71 @@ nav ul .toggle .bars::after {
 
 .row-two-contact .column-two-right-contact .two-right-contact-content .contact-item input::-webkit-input-placeholder {
   padding-left: 5px;
-  color: whitesmoke;
+  color: white;
+  font-family: "Montserrat", sans-serif;
 }
 
 .row-two-contact .column-two-right-contact .two-right-contact-content .contact-item input:-ms-input-placeholder {
   padding-left: 5px;
-  color: whitesmoke;
+  color: white;
+  font-family: "Montserrat", sans-serif;
 }
 
 .row-two-contact .column-two-right-contact .two-right-contact-content .contact-item input::-ms-input-placeholder {
   padding-left: 5px;
-  color: whitesmoke;
+  color: white;
+  font-family: "Montserrat", sans-serif;
 }
 
 .row-two-contact .column-two-right-contact .two-right-contact-content .contact-item input::placeholder {
   padding-left: 5px;
-  color: whitesmoke;
+  color: white;
+  font-family: "Montserrat", sans-serif;
 }
 
 .row-two-contact .column-two-right-contact .two-right-contact-content .contact-item textarea {
   width: 100%;
   border: transparent;
-  border-bottom: 3px solid whitesmoke;
+  border-bottom: 3px solid white;
   background-color: transparent;
-  color: whitesmoke;
+  color: white;
 }
 
 .row-two-contact .column-two-right-contact .two-right-contact-content .contact-item textarea::-webkit-input-placeholder {
-  color: whitesmoke;
+  color: white;
+  font-family: "Montserrat", sans-serif;
 }
 
 .row-two-contact .column-two-right-contact .two-right-contact-content .contact-item textarea:-ms-input-placeholder {
-  color: whitesmoke;
+  color: white;
+  font-family: "Montserrat", sans-serif;
 }
 
 .row-two-contact .column-two-right-contact .two-right-contact-content .contact-item textarea::-ms-input-placeholder {
-  color: whitesmoke;
+  color: white;
+  font-family: "Montserrat", sans-serif;
 }
 
 .row-two-contact .column-two-right-contact .two-right-contact-content .contact-item textarea::placeholder {
-  color: whitesmoke;
+  color: white;
+  font-family: "Montserrat", sans-serif;
 }
 
 .row-two-contact .column-two-right-contact .two-right-contact-content .contact-item textarea:focus {
   outline: none;
+}
+
+.row-two-contact .column-two-right-contact .two-right-contact-content .button {
+  padding: 10px;
+  font-family: "Montserrat", sans-serif;
+  text-transform: uppercase;
+  color: white;
+  border: 2px solid white;
+  border-radius: 12px;
+  background-color: transparent;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  cursor: pointer;
 }
 /*# sourceMappingURL=style.css.map */
