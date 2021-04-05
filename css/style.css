@@ -263,6 +263,7 @@ nav ul .toggle .bars::after {
 
 .column-one-right .column-one-right-content h1 {
   padding-bottom: 20px;
+  font-weight: 400;
 }
 
 .column-one-right .column-one-right-content .column-one-right-text {
@@ -338,6 +339,7 @@ nav ul .toggle .bars::after {
 
 .column-two-left .column-two-left-content h2 {
   padding-bottom: 20px;
+  font-weight: 400;
 }
 
 .column-two-left .column-two-left-content .column-two-left-text {
@@ -391,6 +393,10 @@ nav ul .toggle .bars::after {
   font-family: "Montserrat", sans-serif;
   color: #a55ca8;
   background-color: rgba(203, 166, 228, 0.49);
+}
+
+.column-two-right .column-two-right-bar h2 {
+  font-weight: 400;
 }
 
 .column-two-right .column-two-right-content {
@@ -472,6 +478,10 @@ nav ul .toggle .bars::after {
   .reference-row {
     padding: 150px 0 0 0;
   }
+}
+
+.reference-row h2 {
+  font-weight: 400;
 }
 
 .row-four {
@@ -954,6 +964,16 @@ nav ul .toggle .bars::after {
   outline: none;
 }
 
+.row-two-contact .column-two-right-contact .two-right-contact-content #last-contact-item {
+  margin-bottom: 5px;
+}
+
+.row-two-contact .column-two-right-contact .two-right-contact-content .alert {
+  padding: 5px;
+  font-family: "Montserrat", sans-serif;
+  margin-bottom: 10px;
+}
+
 .row-two-contact .column-two-right-contact .two-right-contact-content .button {
   padding: 10px;
   font-family: "Montserrat", sans-serif;
@@ -966,5 +986,15 @@ nav ul .toggle .bars::after {
   width: -moz-fit-content;
   width: fit-content;
   cursor: pointer;
+}
+
+.row-two-contact .column-two-right-contact .two-right-contact-content .button:hover {
+  background-color: rgba(203, 166, 228, 0.49);
+}
+
+/* PUBLICATION PAGE */
+.row-one-publication img {
+  max-width: 100%;
+  height: 250px;
 }
 /*# sourceMappingURL=style.css.map */

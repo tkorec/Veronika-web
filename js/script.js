@@ -40,10 +40,20 @@ $(document).ready(function () {
         if (error === true) {
             alert_notification.css("background-color", "lightcoral");
             alert_notification.css("border-left", "2px solid red");
-            alert_notification.css("display", "block");
             $("#alert-text").css("color", "red");
             let new_alert_text = previous_alert_text.replace(previous_alert_text, error_message);
             $("#alert-text").html(new_alert_text);
+            $("#alert-text").css("display", "block");
+            setTimeout(function () {
+                $("#name").val("");
+                $("#surname").val("");
+                $("#email").val("");
+                $("#phone").val("");
+                $("#message").val("");
+                $("#alert-text").css("display", "none");
+                $("#alert").css("background-color", "transparent");
+                $("#alert").css("border-left", "transparent");
+            }, 60000);
         } else {
             let data = {
                 name: name,
@@ -62,9 +72,18 @@ $(document).ready(function () {
                     $("#alert-text").css("color", "green");
                     let successfull_alert = previous_alert_text.replace(previous_alert_text, response);
                     $("#alert-text").html(successfull_alert);
-                    $("#alert").css("display", "block");
-                    clearFooterFormInputs();
-                } 
+                    $("#alert-text").css("display", "block");
+                    setTimeout(function () {
+                        $("#name").val("");
+                        $("#surname").val("");
+                        $("#email").val("");
+                        $("#phone").val("");
+                        $("#message").val("");
+                        $("#alert-text").css("display", "none");
+                        $("#alert").css("background-color", "transparent");
+                        $("#alert").css("border-left", "transparent");
+                    }, 6000);
+                }
             }
             xhr.open("POST", "./app/contact.php", true);
             xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
@@ -72,12 +91,6 @@ $(document).ready(function () {
         }
     });
 
-    // Clear footer form inputs after sending a message is successful
-    function clearFooterFormInputs() {
-        $("#name").val("");
-        $("#surname").val("");
-
-    }
 
     // Contact form on Contact page
     $("#contact-button").click(function () {
@@ -92,7 +105,7 @@ $(document).ready(function () {
         let alert_notification = $("#form-alert");
         let alert_text = $("#form-alert-text").html();
         let previous_alert_text = alert_text;
-        if(email_address === '') {
+        if (email_address === '') {
             error_message += 'Je potřeba vyplnit email!';
             error = true;
         }
@@ -103,10 +116,20 @@ $(document).ready(function () {
         if (error === true) {
             alert_notification.css("background-color", "lightcoral");
             alert_notification.css("border-left", "2px solid red");
-            alert_notification.css("display", "block");
             $("#form-alert-text").css("color", "red");
+            $("#form-alert-text").css("display", "block");
             let new_alert_text = previous_alert_text.replace(previous_alert_text, error_message);
             $("#form-alert-text").html(new_alert_text);
+            setTimeout(function () {
+                $("#fname").val("");
+                $("#lname").val("");
+                $("#email-address").val("");
+                $("#phone-number").val("");
+                $("#customer-message").val("");
+                $("#form-alert-text").css("display", "none");
+                $("#form-alert").css("background-color", "transparent");
+                $("#form-alert").css("border-left", "transparent");
+            }, 60000);
         } else {
             let data = {
                 name: fname,
@@ -118,15 +141,24 @@ $(document).ready(function () {
             data = JSON.stringify(data);
             let xml = new XMLHttpRequest();
             xml.onreadystatechange = function () {
-                if(this.readyState === 4 && this.status === 200) {
+                if (this.readyState === 4 && this.status === 200) {
                     let response = this.responseText;
                     $("#form-alert").css("background-color", "lightgreen");
                     $("#form-alert").css("border-left", "2px solid green");
                     $("#form-alert-text").css("color", "green");
                     let successfull_alert = previous_alert_text.replace(previous_alert_text, response);
                     $("#form-alert-text").html(successfull_alert);
-                    $("#form-alert").css("display", "block");
-                    clearContactFormInputs();
+                    $("#form-alert-text").css("display", "block");
+                    setTimeout(function () {
+                        $("#fname").val("");
+                        $("#lname").val("");
+                        $("#email-address").val("");
+                        $("#phone-number").val("");
+                        $("#customer-message").val("");
+                        $("#form-alert-text").css("display", "none");
+                        $("#form-alert").css("background-color", "transparent");
+                        $("#form-alert").css("border-left", "transparent");
+                    }, 6000);
                 }
             }
             xml.open("POST", "./app/contact.php", true);
@@ -138,7 +170,7 @@ $(document).ready(function () {
     // Clear all contact page form inputs after data are successfully sent
     function clearContactFormInputs() {
         // .val("")
-        
+
     }
 });
 

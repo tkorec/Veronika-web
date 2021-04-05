@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Kontakt</title>
     <!-- Style -->
     <link rel="stylesheet" href="css/style.css">
     <!-- jQuery -->
@@ -29,8 +29,8 @@
             <li class="item"><a href="#">O mně</a></li>
             <li class="item"><a href="#">Nabídka</a></li>
             <li class="item"><a href="#">Reference</a></li>
-            <li class="item"><a href="#">Kontakt</a></li>
-            <li class="item"><a href="#">Publikace</a></li>
+            <li class="item"><a href="kontakt.html">Kontakt</a></li>
+            <li class="item"><a href="publikace.html">Publikace</a></li>
             <li class="toggle"><span class="bars" id="open-mobile-menu"></span></li>
         </ul>
     </nav>
@@ -41,20 +41,20 @@
             <i class="fa fa-times"></i>
         </a>
         <div class="mobile-menu-list">
-            <a href="#">Domů</a>
+            <a href="index.html">Domů</a>
             <a href="#">O mně</a>
             <a href="#">Nabídka</a>
             <a href="#">Reference</a>
-            <a href="#">Kontakt</a>
-            <a href="#">Publikace</a>
+            <a href="kontakt.html">Kontakt</a>
+            <a href="publikace.html">Publikace</a>
         </div>
     </div>
 
     <!-- Contact Page Map -->
     <div class="row row-one-contact">
-        <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2560.0429020291904!2d14.429504515678108!3d50.085483621475866!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470b94949a095555%3A0x7a6c0530cf4d8107!2zU2Vub3bDocW-bsOpIG7DoW0uIDIzLCAxMTAgMDAgTm92w6kgTcSbc3Rv!5e0!3m2!1scs!2scz!4v1617119580881!5m2!1scs!2scz"
-            style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2560.0429020291904!2d14.429504515678108!3d50.085483621475866!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470b94949a095555%3A0x7a6c0530cf4d8107!2zU2Vub3bDocW-bsOpIG7DoW0uIDIzLCAxMTAgMDAgTm92w6kgTcSbc3Rv!5e0!3m2!1scs!2scz!4v1617119580881!5m2!1scs!2scz"
+                style="border:0;" allowfullscreen="" loading="lazy"></iframe>
     </div>
 
     <!-- Contact Page – Travel Advice and Contact Form -->
@@ -104,7 +104,7 @@
                             <label for="phone-number">Telefon</label>
                             <input type="text" name="phone-number" id="phone-number" placeholder="Telefon">
                         </div>
-                        <div class="contact-item">
+                        <div class="contact-item" id="last-contact-item">
                             <textarea name="customer-message" id="" cols="30" rows="5"
                                 placeholder="Zprávu napište sem ..."></textarea>
                         </div>
