@@ -997,4 +997,137 @@ nav ul .toggle .bars::after {
   max-width: 100%;
   height: 250px;
 }
+
+/* REFERENCE PAGE */
+.row-one-references {
+  width: 100%;
+  height: 250px;
+  background-image: url("../images/references_two.jpg");
+}
+
+.row-one-references .reference-box {
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  position: relative;
+  width: 450px;
+}
+
+.row-one-references .reference-box h2 {
+  background-color: white;
+  padding: 40px 0;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: "Montserrat", sans-serif;
+  letter-spacing: 1px;
+  font-weight: 400;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  position: relative;
+  -webkit-box-shadow: 2px 6px 21px 11px rgba(0, 0, 0, 0.11);
+          box-shadow: 2px 6px 21px 11px rgba(0, 0, 0, 0.11);
+}
+
+.row-two-references {
+  text-transform: uppercase;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  padding: 25px 0;
+  letter-spacing: 1px;
+  cursor: pointer;
+  background-color: white;
+}
+
+.row-two-references p:hover {
+  padding-bottom: 3px;
+  border-bottom: 2px solid black;
+}
+
+.reference-page-row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background-color: white;
+  padding: 80px 0 40px 0;
+}
+
+.reference-page-row .reference-page-column {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.reference-page-row .reference-page-column .reference-page-box {
+  background-color: rgba(203, 166, 228, 0.49);
+  border-left: 2px solid #a55ca8;
+  color: #a55ca8;
+  width: 50%;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  position: relative;
+  padding: 25px 25px 15px 25px;
+  line-height: 25px;
+  margin-bottom: 25px;
+}
+
+.reference-page-row .reference-page-column .reference-page-box .reference-page-text {
+  quotes: "“" "”";
+  text-align: justify;
+  margin-bottom: 10px;
+}
+
+.reference-page-row .reference-page-column .reference-page-box .reference-page-text:before {
+  content: open-quote;
+  display: inline;
+  line-height: 0;
+  left: -10px;
+  position: relative;
+  top: 20px;
+  color: #a55ca8;
+  font-size: 3em;
+}
+
+.row-four-references {
+  background-color: white;
+}
+
+.row-four-references .button-up {
+  position: relative;
+  margin: 10px auto;
+  background: #a55ca8;
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  -webkit-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+  cursor: pointer;
+}
+
+.row-four-references .button-up:hover {
+  -webkit-transform: translate3d(0, -10px, 0);
+          transform: translate3d(0, -10px, 0);
+}
+
+.row-four-references .button-up::after {
+  content: "";
+  position: absolute;
+  left: 17px;
+  z-index: 11;
+  display: block;
+  width: 25px;
+  height: 25px;
+  border-top: 2px solid #fff;
+  border-left: 2px solid #fff;
+  top: 20px;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
 /*# sourceMappingURL=style.css.map */

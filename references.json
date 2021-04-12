@@ -1,14 +1,22 @@
 {
-    "school" : [
-        {"name" : "name", "message" : "message"},
-        {"name" : "name", "mesage" : "message"}
+    "individual-consultation" : [
+        {"name" : "Tomas", "message" : "Individualni konzultace"},
+        {"name" : "Pepa", "message" : "Individualni konzultace"}
     ],
-    "relationship" : [
-        {"name" : "name", "message" : "message"},
-        {"name" : "name", "mesage" : "message"}
+    "school-consultation" : [
+        {"name" : "Petr", "message" : "Skolni konzultace"},
+        {"name" : "Tereza", "message" : "Skolni konzultace"}
     ],
-    "career" : [
-        {"name" : "name", "message" : "message"},
-        {"name" : "name", "mesage" : "message"}
+    "courses" : [
+        {"name" : "name", "message" : "Kurzy"},
+        {"name" : "name", "message" : "Kurzy"}
+    ],
+    "seminars" : [
+        {"name" : "name", "message" : "Seminare"},
+        {"name" : "name", "message" : "Seminare"}
+    ],
+    "lectures" : [
+        {"name" : "name", "message" : "Lekce"},
+        {"name" : "name", "message" : "Lekce"}
     ]
 }
