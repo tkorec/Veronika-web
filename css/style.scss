@@ -712,26 +712,40 @@ nav {
 }
 
 /* REFERENCE PAGE */
-.row-one-references {
+.column-one-references {
     width: 100%;
-    height: 250px;
-    background-image: url("../images/references_two.jpg");
+    height: 450px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    background-image: url("../images/thumb.png");
+    @media screen and (min-width: $mobile-breaking-point) {
+        background-image: url("../images/references_two.jpg");
+        height: 250px;
+        padding: 0;
+    }
+    background-repeat: no-repeat;
     .reference-box {
+        top: 50%;
         left: 50%;
-        transform: translateX(-50%);
+        transform: translate(-50%, -50%);
         position: relative;
-        width: 450px;
+        width: fit-content;
+        @media screen and (min-width: 500px) {
+            width: 450px;
+        }
         h2 {
             background-color: white;
-            padding: 40px 0;
+            padding: 20px 10px;
+            font-size: 1.2rem;
+            @media screen and (min-width: 500px) {
+                padding: 40px 0;
+                font-size: 1.5rem;
+            }
             text-align: center;
             text-transform: uppercase;
             font-family: $montserrat;
             letter-spacing: 1px;
             font-weight: 400;
-            top: 50%;
-            transform: translateY(-50%);
-            position: relative;
             box-shadow: 2px 6px 21px 11px rgba(0, 0, 0, 0.11);
         }
     }
@@ -741,14 +755,60 @@ nav {
     text-transform: uppercase;
     font-family: $montserrat;
     font-weight: 600;
-    justify-content: space-around;
     padding: 25px 0;
     letter-spacing: 1px;
     cursor: pointer;
     background-color: white;
+    display: flex;
+    overflow-x: auto;
+    @media screen and (min-width: $mobile-breaking-point) {
+        justify-content: space-around;
+    }
+    .column-references {
+        margin-left: 20px;
+        @media screen and (min-width: $mobile-breaking-point) {
+            margin-left: 0;
+        }
+        min-width: fit-content;
+        text-align: center;
+    }
     p:hover {
-        padding-bottom: 3px;
-        border-bottom: 2px solid black;
+        @media screen and (min-width: $mobile-breaking-point) {
+            padding-bottom: 3px;
+            border-bottom: 2px solid black;
+        }
+    }
+    #lectures {
+        margin-right: 7px;
+        @media screen and (min-width: $mobile-breaking-point) {
+            margin-right: 0;
+        }
+    }
+}
+
+.reference-scroll-legend-row {
+    display: flex;
+    @media screen and (min-width: $mobile-breaking-point) {
+        display: none;
+    }
+    flex-direction: row-reverse;
+    background-color: white;
+    .reference-scroll-legend-column {
+        margin-right: 7px;
+    }
+    p {
+        color: grey;
+        font-family: $montserrat;
+    }
+    .arrow {
+        border: solid grey;
+        border-width: 0 3px 3px 0;
+        display: inline-block;
+        padding: 3px;
+    }
+    .right {
+        transform: rotate(-45deg);
+        -webkit-transform: rotate(-45deg);
     }
 }
 
@@ -756,14 +816,17 @@ nav {
     display: flex;
     flex-direction: column;
     background-color: white;
-    padding: 80px 0 40px 0;
+    padding: 80px 0 20px 0;
     .reference-page-column {
         flex: 1;
         .reference-page-box {
             background-color: $background-color;
             border-left: 2px solid $font-color;
             color: $font-color;
-            width: 50%;
+            width: 85%;
+            @media screen and (min-width: $mobile-breaking-point) {
+                width: 50%;
+            }
             left: 50%;
             transform: translateX(-50%);
             position: relative;
@@ -793,7 +856,7 @@ nav {
     background-color: white;
     .button-up {
         position: relative;
-        margin: 10px auto;
+        margin: 15px auto;
         background: $font-color;
         height: 60px;
         width: 60px;
@@ -809,8 +872,8 @@ nav {
             left: 17px;
             z-index: 11;
             display: block;
-            width: 25px;
-            height: 25px;
+            width: 23px;
+            height: 23px;
             border-top: 2px solid #fff;
             border-left: 2px solid #fff;
             top: 20px;
