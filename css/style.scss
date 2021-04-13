@@ -599,6 +599,9 @@ nav {
     background-color: white;
     font-family: $montserrat;
     text-align: justify;
+    @media screen and (max-width: 1100px) {
+        flex-direction: column-reverse;   
+    }
     .column-two-left-contact {
         flex: 1;
         .two-left-contact-content {
@@ -606,6 +609,15 @@ nav {
             left: 50%;
             transform: translateX(-50%);
             padding: 40px 80px 60px 60px;
+            @media screen and (max-width: 1300px) {
+                padding: 40px 40px 60px 60px;
+            }
+            @media screen and (max-width: 1100px) {
+                padding: 30px 40px 60px 40px;
+            }
+            @media screen and (max-width: 850px) {
+                padding: 30px 25px 60px 25px;
+            }
             h2,
             h3 {
                 margin-bottom: 10px;
@@ -622,14 +634,38 @@ nav {
             left: 50%;
             transform: translateX(-50%);
             padding: 40px 20px 60px 60px;
+            @media screen and (max-width: 1300px) {
+                padding: 40px 20px 60px 20px;
+            }
+            @media screen and (max-width: 1100px) {
+                padding: 40px 20px 30px 20px;
+            }
+            @media screen and (max-width: 850px) {
+                padding: 40px 10px 30px 10px;
+            }
             form {
                 background-color: $font-color;
                 opacity: 0.85;
                 padding: 35px 35px 20px 35px;
+                @media screen and (max-width: 850px) {
+                    padding: 35px 10px 20px 10px;
+                }
                 border-radius: 16px;
                 display: flex;
+                @media screen and (max-width: 850px) {
+                    flex-direction: column;
+                }
                 .form-column-left {
                     flex: 40%;
+                    @media screen and (max-width: 1200px) {
+                        flex: 100%;
+                    }
+                    @media screen and (max-width: 1100px) {
+                        flex: 40%;
+                    }
+                    @media screen and (max-width: 850px) {
+                        margin-bottom: 25px;
+                    }
                     color: white;
                     font-weight: 600;
                     p {
@@ -638,6 +674,12 @@ nav {
                 }
                 .form-column-right {
                     flex: 60%;
+                    @media screen and (max-width: 1200px) {
+                        flex: 100%;
+                    }
+                    @media screen and (max-width: 1100px) {
+                        flex: 60%;
+                    }
                 }
             }
             .contact-item {
@@ -881,3 +923,4 @@ nav {
         }
     }
 }
+/* End of Reference Page */
