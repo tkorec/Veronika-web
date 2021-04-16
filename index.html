@@ -194,61 +194,66 @@
 
 
     <!-- Bottom Menu, Map, Contact Form -->
-    <div class="row row-five">
-        <div class="column column-five-left">
-            <form action="">
-                <div class="name-and-surname">
-                    <div class="bottom-form-item">
-                        <label for="name">Jméno</label><br>
-                        <input type="text" id="name" name="name">
+    <footer>
+        <div class="row row-five">
+            <div class="column column-five-left">
+                <form action="">
+                    <div class="name-and-surname">
+                        <div class="bottom-form-item">
+                            <label for="name">Jméno</label><br>
+                            <input type="text" id="name" name="name">
+                        </div>
+                        <div class="bottom-form-item">
+                            <label for="surname">Příjmení</label><br>
+                            <input type="text" id="surname" name="surname">
+                        </div>
+                    </div>
+                    <div class="mail-and-phone">
+                        <div class="bottom-form-item">
+                            <label for="email">Email*</label><br>
+                            <input type="text" id="email" name="email">
+                        </div>
+                        <div class="bottom-form-item">
+                            <label for="phone">Telefon</label><br>
+                            <input type="text" id="phone" name="phone">
+                        </div>
                     </div>
                     <div class="bottom-form-item">
-                        <label for="surname">Příjmení</label><br>
-                        <input type="text" id="surname" name="surname">
+                        <textarea name="message" id="message" rows="5" placeholder="Zprávu napište sem ..."></textarea>
                     </div>
-                </div>
-                <div class="mail-and-phone">
-                    <div class="bottom-form-item">
-                        <label for="email">Email*</label><br>
-                        <input type="text" id="email" name="email">
+                    <div class="alert" id="alert">
+                        <p class="alert-text" id="alert-text"></p>
                     </div>
-                    <div class="bottom-form-item">
-                        <label for="phone">Telefon</label><br>
-                        <input type="text" id="phone" name="phone">
+                    <div class="button" id="message-button">
+                        <p>Odeslat</p>
                     </div>
+                </form>
+            </div>
+            <div class="column column-five-middle">
+                <div class="column-five-middle-content">
+                    <p>Senovážné náměstí 23, Praha 1, budova D, 1. patro, místnost 103 (pracoviště není zdravotnickým
+                        zařízením)</p>
+                    <p>IČ: 038 33 330</p>
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2560.0429020291904!2d14.429504515678108!3d50.085483621475866!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470b94949a095555%3A0x7a6c0530cf4d8107!2zU2Vub3bDocW-bsOpIG7DoW0uIDIzLCAxMTAgMDAgTm92w6kgTcSbc3Rv!5e0!3m2!1scs!2scz!4v1617119580881!5m2!1scs!2scz"
+                        width="160" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                 </div>
-                <div class="bottom-form-item">
-                    <textarea name="message" id="message" rows="5" placeholder="Zprávu napište sem ..."></textarea>
-                </div>
-                <div class="alert" id="alert">
-                    <p class="alert-text" id="alert-text"></p>
-                </div>
-                <div class="button" id="message-button">
-                    <p>Odeslat</p>
-                </div>
-            </form>
-        </div>
-        <div class="column column-five-middle">
-            <div class="column-five-middle-content">
-                <p>Senovážné náměstí 23, Praha 1, budova D, 1. patro, místnost 103 (pracoviště není zdravotnickým
-                    zařízením)</p>
-                <p>IČ: 038 33 330</p>
-                <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2560.0429020291904!2d14.429504515678108!3d50.085483621475866!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470b94949a095555%3A0x7a6c0530cf4d8107!2zU2Vub3bDocW-bsOpIG7DoW0uIDIzLCAxMTAgMDAgTm92w6kgTcSbc3Rv!5e0!3m2!1scs!2scz!4v1617119580881!5m2!1scs!2scz"
-                    height="160" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+            <div class="column column-five-right">
+                <ul>
+                    <li class="bottom-item">
+                        <i class="arrow up" id="scroll-up"></i>
+                    </li>
+                    <li class="bottom-item"><a href="index.html">Domů</a></li>
+                    <li class="bottom-item"><a href="o-mne.html">O mně</a></li>
+                    <li class="bottom-item"><a href="#">Nabídka</a></li>
+                    <li class="bottom-item"><a href="reference.html">Reference</a></li>
+                    <li class="bottom-item"><a href="kontakt.html">Kontakt</a></li>
+                    <li class="bottom-item"><a href="publikace.html">Publikace</a></li>
+                </ul>
             </div>
         </div>
-        <div class="column column-five-right">
-            <ul>
-                <li class="bottom-item"><a href="index.html">Domů</a></li>
-                <li class="bottom-item"><a href="#">O mně</a></li>
-                <li class="bottom-item"><a href="#">Nabídka</a></li>
-                <li class="bottom-item"><a href="reference.html">Reference</a></li>
-                <li class="bottom-item"><a href="kontakt.html">Kontakt</a></li>
-                <li class="bottom-item"><a href="publikace.html">Publikace</a></li>
-            </ul>
-        </div>
-    </div>
+    </footer>
 
     <!-- Javascript -->
     <script src="js/script.js"></script>
