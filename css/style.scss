@@ -672,7 +672,6 @@ nav {
             padding: 0 70px 0 70px;
             margin: 0;
             font-size: 2rem;
-            //letter-spacing: 1px;
             line-height: 42px;
         }
     }
@@ -681,7 +680,7 @@ nav {
 .row-about-two {
     background-color: white;
     height: auto;
-    padding: 100px 0 40px 0;
+    padding: 100px 0 100px 0;
     .column-about-two-content {
         font-family: $montserrat;
         line-height: 25px;
@@ -721,6 +720,7 @@ nav {
         }
     }
 }
+/* End of About Page */
 
 
 /* CONTACT PAGE */
@@ -880,6 +880,7 @@ nav {
         }
     }
 }
+/* End of Contact Page */
 
 /* PUBLICATION PAGE */
 .row-one-publication img {
@@ -992,7 +993,7 @@ nav {
     display: flex;
     flex-direction: column;
     background-color: white;
-    padding: 80px 0 20px 0;
+    padding: 80px 0 80px 0;
     .reference-page-column {
         flex: 1;
         .reference-page-box {
@@ -1024,36 +1025,6 @@ nav {
                     font-size: 3em;
                 }
             }
-        }
-    }
-}
-
-.row-four-references {
-    background-color: white;
-    .button-up {
-        position: relative;
-        margin: 15px auto;
-        background: $font-color;
-        height: 60px;
-        width: 60px;
-        border-radius: 50%;
-        transition: all 0.2s linear;
-        cursor: pointer;
-        &:hover {
-            transform: translate3d(0, -10px, 0);
-        }
-        &::after {
-            content: "";
-            position: absolute;
-            left: 17px;
-            z-index: 11;
-            display: block;
-            width: 23px;
-            height: 23px;
-            border-top: 2px solid #fff;
-            border-left: 2px solid #fff;
-            top: 20px;
-            transform: rotate(45deg);
         }
     }
 }

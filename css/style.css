@@ -931,7 +931,7 @@ nav ul .toggle .bars::after {
 .row-about-two {
   background-color: white;
   height: auto;
-  padding: 100px 0 40px 0;
+  padding: 100px 0 100px 0;
 }
 
 .row-about-two .column-about-two-content {
@@ -982,6 +982,7 @@ nav ul .toggle .bars::after {
   color: white;
 }
 
+/* End of About Page */
 /* CONTACT PAGE */
 .row-one-contact iframe {
   width: 100%;
@@ -1265,6 +1266,7 @@ nav ul .toggle .bars::after {
   background-color: rgba(203, 166, 228, 0.49);
 }
 
+/* End of Contact Page */
 /* PUBLICATION PAGE */
 .row-one-publication img {
   max-width: 100%;
@@ -1425,7 +1427,7 @@ nav ul .toggle .bars::after {
       -ms-flex-direction: column;
           flex-direction: column;
   background-color: white;
-  padding: 80px 0 20px 0;
+  padding: 80px 0 80px 0;
 }
 
 .reference-page-row .reference-page-column {
@@ -1469,42 +1471,6 @@ nav ul .toggle .bars::after {
   top: 20px;
   color: #a55ca8;
   font-size: 3em;
-}
-
-.row-four-references {
-  background-color: white;
-}
-
-.row-four-references .button-up {
-  position: relative;
-  margin: 15px auto;
-  background: #a55ca8;
-  height: 60px;
-  width: 60px;
-  border-radius: 50%;
-  -webkit-transition: all 0.2s linear;
-  transition: all 0.2s linear;
-  cursor: pointer;
-}
-
-.row-four-references .button-up:hover {
-  -webkit-transform: translate3d(0, -10px, 0);
-          transform: translate3d(0, -10px, 0);
-}
-
-.row-four-references .button-up::after {
-  content: "";
-  position: absolute;
-  left: 17px;
-  z-index: 11;
-  display: block;
-  width: 23px;
-  height: 23px;
-  border-top: 2px solid #fff;
-  border-left: 2px solid #fff;
-  top: 20px;
-  -webkit-transform: rotate(45deg);
-          transform: rotate(45deg);
 }
 
 /* End of Reference Page */
