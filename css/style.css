@@ -612,13 +612,13 @@ nav ul .toggle .bars::after {
     -webkit-box-flex: 2;
         -ms-flex: 2;
             flex: 2;
-    padding: 20px 0 0 60px;
+    padding: 20px 0 0 40px;
   }
 }
 
 @media screen and (min-width: 855px) and (max-width: 1250px) {
   .row-five .column-five-left {
-    padding: 20px 0 0 60px;
+    padding: 20px 0 0 40px;
   }
 }
 
@@ -752,7 +752,7 @@ nav ul .toggle .bars::after {
 
 @media screen and (min-width: 855px) and (max-width: 1250px) {
   .row-five .column-five-middle {
-    padding: 20px 60px 0 0;
+    padding: 20px 40px 0 0;
   }
 }
 
@@ -1015,12 +1015,12 @@ nav ul .toggle .bars::after {
   left: 50%;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
-  padding: 40px 80px 60px 60px;
+  padding: 40px 80px 60px 40px;
 }
 
 @media screen and (max-width: 1300px) {
   .row-two-contact .column-two-left-contact .two-left-contact-content {
-    padding: 40px 40px 60px 60px;
+    padding: 40px 40px 60px 40px;
   }
 }
 
@@ -1273,13 +1273,13 @@ nav ul .toggle .bars::after {
 
 @media screen and (min-width: 1300px) {
   .navigation-image-row {
-    padding: 0 30px 40px 50px;
+    padding: 0 30px 40px 30px;
   }
 }
 
 @media screen and (max-width: 1300px) {
   .navigation-image-row {
-    padding: 0 40px 40px 50px;
+    padding: 0 15px 40px 30px;
   }
 }
 

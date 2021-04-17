@@ -220,7 +220,5 @@ $(document).ready(function () {
         });
     });
 
-    // Function changing date in footer
-
 });
 
