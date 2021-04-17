@@ -1056,7 +1056,7 @@ nav ul .toggle .bars::after {
   left: 50%;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
-  padding: 40px 20px 60px 60px;
+  padding: 40px 40px 60px 40px;
 }
 
 @media screen and (max-width: 1300px) {
@@ -1264,6 +1264,50 @@ nav ul .toggle .bars::after {
 
 .row-two-contact .column-two-right-contact .two-right-contact-content .button:hover {
   background-color: rgba(203, 166, 228, 0.49);
+}
+
+.navigation-image-row {
+  background-color: white;
+  width: 100%;
+}
+
+@media screen and (min-width: 1300px) {
+  .navigation-image-row {
+    padding: 0 30px 40px 50px;
+  }
+}
+
+@media screen and (max-width: 1300px) {
+  .navigation-image-row {
+    padding: 0 40px 40px 50px;
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  .navigation-image-row {
+    padding: 0 30px 40px 30px;
+  }
+}
+
+@media screen and (max-width: 850px) {
+  .navigation-image-row {
+    padding: 0 15px 40px 15px;
+  }
+}
+
+.navigation-image-row .navigation-image-column {
+  padding: 10px;
+}
+
+.navigation-image-row .navigation-image-column .navigation-image {
+  max-width: 100%;
+  height: auto;
+}
+
+.navigation-image-row .navigation-image-column p {
+  padding-top: 7px;
+  font-family: "Montserrat", sans-serif;
+  text-align: center;
 }
 
 /* End of Contact Page */
