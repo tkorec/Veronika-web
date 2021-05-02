@@ -1,0 +1,378 @@
+@charset "UTF-8";
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: white;
+}
+
+/* NAVIGATION */
+nav {
+  background-color: rgba(203, 166, 228, 0.49);
+  padding: 25px 20px;
+}
+
+nav ul {
+  list-style-type: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+nav ul .nav-group {
+  display: block;
+  padding: 15px 0;
+}
+
+nav ul li {
+  display: inline;
+}
+
+nav ul li.item {
+  width: auto;
+  margin: 0 16px;
+}
+
+nav ul li a {
+  color: #a55ca8;
+  text-decoration: none;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+}
+
+/* End of navigation */
+/* LOGIN PAGE */
+.successfull-loggin {
+  background-color: rgba(203, 166, 228, 0.49);
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  color: #a55ca8;
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+  position: absolute;
+  padding: 60px;
+}
+
+.loggin-form-body {
+  background-color: rgba(203, 166, 228, 0.49);
+}
+
+.loggin-form {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  background-color: #a55ca8;
+  padding: 60px 60px 35px 60px;
+}
+
+.loggin-form .loggin-item {
+  margin-bottom: 30px;
+}
+
+.loggin-form #last-loggin-item {
+  margin-bottom: 22px;
+}
+
+.loggin-form label {
+  color: white;
+  font-family: "Montserrat", sans-serif;
+  text-transform: uppercase;
+}
+
+.loggin-form input {
+  height: 40px;
+  width: 350px;
+  border: transparent;
+  border-bottom: 3px solid white;
+  background-color: transparent;
+  color: white;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1rem;
+}
+
+.loggin-form input:focus {
+  outline: none;
+}
+
+.loggin-form .button {
+  padding: 10px;
+  font-family: "Montserrat", sans-serif;
+  text-transform: uppercase;
+  color: white;
+  border: 2px solid white;
+  border-radius: 12px;
+  background-color: transparent;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  cursor: pointer;
+}
+
+.loggin-form .button:hover {
+  background-color: rgba(203, 166, 228, 0.49);
+}
+
+.loggin-form .loggin-alert {
+  display: none;
+  background-color: lightcoral;
+  border-left: 2px solid red;
+  width: 350px;
+  padding: 7px;
+  margin-bottom: 17px;
+}
+
+.loggin-form .loggin-alert .loggin-alert-message {
+  font-family: "Montserrat", sans-serif;
+  color: red;
+}
+
+/* End of Login Page */
+/* REFERENCE PAGE */
+.row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.row .column {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.row .column .reference-box {
+  width: 65%;
+  position: relative;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  margin-top: 30px;
+}
+
+.row .column .reference-box .content {
+  display: none;
+  width: 100%;
+  padding-top: 8px;
+}
+
+.row .column .reference-box .content .text textarea {
+  width: 100%;
+  border: 2px solid #a55ca8;
+  padding: 5px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  letter-spacing: 1px;
+}
+
+.row .column .reference-box .content .text textarea:focus {
+  outline: none;
+}
+
+.row .column .reference-box .content .name-and-button {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  padding-top: 8px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  gap: 8px;
+}
+
+.row .column .reference-box .content .name-and-button input {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  height: 50px;
+  border: 2px solid #a55ca8;
+  padding-left: 5px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+}
+
+.row .column .reference-box .content .name-and-button input:focus {
+  outline: none;
+}
+
+.row .column .reference-box .content .name-and-button .add-button {
+  display: block;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  height: 50px;
+  cursor: pointer;
+  background-color: white;
+  border: 2px solid #a55ca8;
+  font-family: "Montserrat", sans-serif;
+  color: #a55ca8;
+  text-transform: uppercase;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.row .column .reference-box .content .name-and-button .edit-button {
+  display: none;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  height: 50px;
+  cursor: pointer;
+  background-color: white;
+  border: 2px solid #a55ca8;
+  font-family: "Montserrat", sans-serif;
+  color: #a55ca8;
+  text-transform: uppercase;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.row .column .reference {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  position: relative;
+  margin-top: 30px;
+  width: 65%;
+}
+
+.row .column .delete-ensure {
+  display: none;
+  text-align: center;
+  margin-top: 10px;
+  width: 65%;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  position: relative;
+}
+
+.row .column .delete-ensure .delete-ensure-button {
+  height: 50px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  color: #a55ca8;
+  text-transform: uppercase;
+  background-color: rgba(203, 166, 228, 0.49);
+  width: 86%;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  position: relative;
+  cursor: pointer;
+}
+
+.row .column .delete-ensure .delete-ensure-button p {
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  position: relative;
+  font-size: 1.1rem;
+}
+
+.row .column .reference-edit {
+  width: 7%;
+  background-color: rgba(203, 166, 228, 0.49);
+  cursor: pointer;
+  margin-right: 5px;
+}
+
+.row .column .reference-edit .fa-edit {
+  color: #a55ca8;
+  font-size: 2rem;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  position: relative;
+}
+
+.row .column .reference-page-box {
+  width: 86%;
+  background-color: rgba(203, 166, 228, 0.49);
+  color: #a55ca8;
+  padding: 25px 25px 15px 25px;
+  font-family: "Montserrat", sans-serif;
+  line-height: 25px;
+}
+
+.row .column .reference-page-box .reference-page-text {
+  quotes: "“" "”";
+  text-align: justify;
+  margin-bottom: 10px;
+}
+
+.row .column .reference-page-box .reference-page-text:before {
+  content: open-quote;
+  display: inline;
+  line-height: 0;
+  left: -10px;
+  position: relative;
+  top: 20px;
+  color: #a55ca8;
+  font-size: 3em;
+}
+
+.row .column .reference-delete {
+  cursor: pointer;
+  background-color: rgba(203, 166, 228, 0.49);
+  width: 7%;
+  margin-left: 5px;
+}
+
+.row .column .reference-delete .fa-trash {
+  color: #a55ca8;
+  font-size: 2rem;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  position: relative;
+}
+
+.row .column select {
+  cursor: pointer;
+  width: 100%;
+  height: 52px;
+  background-color: rgba(203, 166, 228, 0.49);
+  border: 2px solid #a55ca8;
+  color: #a55ca8;
+  text-transform: uppercase;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.row .column select:focus {
+  outline: none;
+}
+/*# sourceMappingURL=admin.css.map */
