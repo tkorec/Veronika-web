@@ -170,44 +170,46 @@ $(document).ready(function () {
     // Load references
     $(".reference-type").click(function () {
         let reference_type = $(this).attr("id");
-        fetch('./references.json').then(function (response) {
-            return response.json();
-        }).then(function (object) {
-            console.log(object);
-            displayReferencesAndChangeTitle(object, reference_type);
-        }).catch(function (error) {
-            console.error('Something went wrong');
-            console.error(error);
-        });
+        let data = { category: reference_type };
+        data = JSON.stringify(data);
+        let xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function () {
+            if (this.readyState === 4 && this.status === 200) {
+                displayReferencesAndChangeTitle(this.responseText, reference_type);
+            }
+        }
+        xhr.open("POST", "./app/get_references.php", true);
+        xhr.send(data);
     });
 
     // Display references and change title
-    function displayReferencesAndChangeTitle(object, reference_type) {
-        let data = object[reference_type];
+    function displayReferencesAndChangeTitle(references, type) {
+        let references_data = JSON.parse(references);
         let reference_query = '';
-        for (let i in data) {
+        for (let i = references_data.length - 1; i >= 0; i--) {
             reference_query += `
             <div class="reference-page-column">
             <div class="reference-page-box">
-                <p class="reference-page-text">${data[i].message}</p>
-                <i class="author">${data[i].name}</i>
+                <p class="reference-page-text">${references_data[i].reference}</p>
+                <i class="author">${references_data[i].referencer_name}</i>
             </div>
             </div>
             `;
         }
-        console.log(reference_query);
-        changeTitle(reference_type);
+        $("#reference-page-row").html(reference_query);
+        changeTitle(type);
     }
 
     // Change title
     function changeTitle(title_code) {
-        let reference_title = {"individual-consultation":"Individuální konzultace", 
-        "school-consultation":"Školní poradna", "courses":"Kurzy", 
-        "seminars":"Semináře", "lectures":"Přednášky"};
+        let reference_title = {
+            "individual-consultation": "Individuální konzultace",
+            "school-consultation": "Školní poradna", "courses": "Kurzy",
+            "seminars": "Semináře", "lectures": "Přednášky"
+        };
         let title = reference_title[title_code];
         let previous_title = $("#reference-title").html();
         let new_title = previous_title.replace(previous_title, title);
-        //$("#reference-box").css("width", "450px");
         $("#reference-title").html(new_title);
     }
 

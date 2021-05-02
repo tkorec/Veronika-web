@@ -5,8 +5,10 @@ $(document).ready(function () {
         let consultation_category_value = $("#consultation-category").val();
         if (consultation_category_value === 'consultation-category') {
             defaultConsultantCategoryChoise();
+            backToAddState();
         } else {
             consultationCategoryChoise(consultation_category_value);
+            backToAddState();
         }
     });
 
@@ -65,6 +67,7 @@ $(document).ready(function () {
                 backToAddState();
             } else {
                 editThisReference(id);
+                scrollUp();
             }
         });
         $(".reference-delete").on("click", function () {
@@ -123,6 +126,7 @@ $(document).ready(function () {
 
     // Delete reference
     function deleteThisReference(id) {
+        backToAddState();
         let consultation_category = $("#consultation-category").val();
         let data = { id: id, category: consultation_category };
         data = JSON.stringify(data);
@@ -160,6 +164,15 @@ $(document).ready(function () {
     function clearForm() {
         $("#reference-text").val("");
         $("#referencer-name").val("");
+    }
+
+    // Scroll page up
+    function scrollUp() {
+        let root_element = document.documentElement;
+        root_element.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
     }
 
 });

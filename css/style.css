@@ -1492,6 +1492,7 @@ nav ul .toggle .bars::after {
   padding: 25px 25px 15px 25px;
   line-height: 25px;
   margin-bottom: 25px;
+  font-family: "Montserrat", sans-serif;
 }
 
 @media screen and (min-width: 855px) {
