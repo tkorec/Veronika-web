@@ -48,6 +48,7 @@
                     <option value="courses">Kurzy</option>
                     <option value="seminars">Semináře</option>
                     <option value="lectures">Přednášky</option>
+                    <option value="all">Nastavení výchozích referencí</option>
                 </select>
             </div>
         </div>
@@ -56,7 +57,7 @@
             <div class="reference-box">
                 <div class="content" id="content">
                     <div class="text">
-                        <textarea name="" id="reference-text" cols="30" rows="10" placeholder="Reference"></textarea>
+                        <textarea name="reference-text" id="reference-text" cols="30" rows="10" placeholder="Reference"></textarea>
                     </div>
                     <div class="name-and-button">
                         <input type="text" name="referencer-name" id="referencer-name" placeholder="Jméno referenta">

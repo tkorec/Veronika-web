@@ -6,6 +6,8 @@ $(document).ready(function () {
         if (consultation_category_value === 'consultation-category') {
             defaultConsultantCategoryChoise();
             backToAddState();
+        } else if (consultation_category_value === 'all') {
+            getAllReferences();
         } else {
             consultationCategoryChoise(consultation_category_value);
             backToAddState();
@@ -31,6 +33,29 @@ $(document).ready(function () {
         };
         xhr.open("POST", "../app/get_references.php", true);
         xhr.send(data);
+    }
+
+    // Request server for all references
+    function getAllReferences() {
+        $("#content").css("display", "none");
+        let xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function () {
+            if (this.readyState === 4 && this.status === 200) {
+                displayAllReferences(this.responseText);
+            }
+        };
+        xhr.open("POST", "../app/get_all_references.php", true);
+        xhr.send();
+    }
+
+    // Display all references
+    function displayAllReferences(references) {
+        let references_data = JSON.parse(references);
+        let references_query = '';
+        for (let i = references_data.length - 1; i >= 0; i--) {
+            references_query += ``;
+        }
+
     }
 
     // Gained references of the certain category are displayed on the page
@@ -173,6 +198,72 @@ $(document).ready(function () {
             top: 0,
             behavior: "smooth"
         });
+    }
+
+    // Add publication
+    $("#add-publication").click(function () {
+        let publication_category = $("#publication-category").val();
+        let author = $("#author").val();
+        let year = $("#year").val();
+        let title = $("#title").val();
+        let edition = $("#edition").val();
+        let city = $("#city").val();
+        let publisher = $("#publisher").val();
+        let isbn = $("#isbn").val();
+        let link = $("#link").val();
+        let error = false;
+        if (author === '' || year === '' || title === '') {
+            error = true;
+        }
+        if (error === true) {
+            $("#publication-alert").css("display", "block");
+        } else {
+            let data = {
+                category: publication_category,
+                author: author,
+                year: year,
+                title: title,
+                edition: edition,
+                city: city,
+                publisher: publisher,
+                isbn: isbn,
+                link: link
+            };
+            data = JSON.stringify(data);
+            let xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function () {
+                if (this.readyState === 4 && this.status === 200) {
+                    displayPublications(this.responseText);
+                    clearPublicationForm();
+                }
+            };
+            xhr.open("POST", "../app/add_publication.php", true);
+            xhr.send(data);
+        }
+    });
+
+    // Display publications
+    function displayPublications(publications) {
+        let publications_data = JSON.parse(publications);
+        let publication_query = '';
+        for (let i = publications_data.length - 1; i >= 0; i--) {
+            publication_query += `
+
+            `;
+        }
+    }
+
+    // Clear publication form and hide it
+    function clearPublicationForm() {
+        $("#author").val("");
+        $("#year").val("");
+        $("#title").val("");
+        $("#edition").val("");
+        $("#city").val("");
+        $("#publisher").val("");
+        $("#isbn").val("");
+        $("#link").val("");
+        $("#publication-alert").css("display", "none");
     }
 
 });

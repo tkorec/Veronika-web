@@ -301,3 +301,69 @@ nav {
         }
     }
 }
+/* End of Reference Page */
+
+/* PUBLICATION PAGE */
+.publication-box {
+    width: 65%;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 30px;
+    display: block;
+    input {
+        width: 100%;
+        height: 50px;
+        border: transparent;
+        border-bottom: 2px solid $font-color;
+        margin-bottom: 30px;
+        padding: 5px;
+        font-family: $montserrat;
+        font-size: 16px;
+        letter-spacing: 1px;
+        &:focus {
+            outline: none;
+        }
+    }
+    #link {
+        margin-bottom: 10px;
+    }
+    .add-button {
+        display: block;
+        width: 100%;
+        height: 50px;
+        cursor: pointer;
+        background-color: white;
+        border: 2px solid $font-color;
+        font-family: $montserrat;
+        color: $font-color;
+        text-transform: uppercase;
+        font-size: 1rem;
+        font-weight: 600;
+        margin-top: 10px;
+    }
+    .edit-button {
+        display: none;
+        width: 100%;
+        height: 50px;
+        cursor: pointer;
+        background-color: white;
+        border: 2px solid $font-color;
+        font-family: $montserrat;
+        color: $font-color;
+        text-transform: uppercase;
+        font-size: 1rem;
+        font-weight: 600;
+    }
+    .publication-alert {
+        display: none;
+        width: 100%;
+        background-color: lightcoral;
+        color: red;
+        border-left: 2px solid red;
+        padding: 8px;
+        font-family: $montserrat;
+    }
+}
+
+
