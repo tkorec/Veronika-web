@@ -200,6 +200,39 @@ $(document).ready(function () {
         });
     }
 
+    // Choose category of publication, display relevant publications and dosplai form
+    $("#publication-category").change(function () {
+        let publication_category_value = $("#publication-category").val();
+        if (publication_category_value === 'publication-category') {
+            defaultPublicationCategoryChoise();
+            backToPublicationAddState();
+        } else {
+            publicationCategoryChoise(publication_category_value);
+            backToPublicationAddState();
+        }
+    });
+
+    // If new or another than default publication category is chosen, get relevant publications
+    function publicationCategoryChoise(publication_category_value) {
+        $("#publication-form").css("display", "block");
+        let data = { category: publication_category_value };
+        data = JSON.stringify(data);
+        let xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function() {
+            if (this.readyState === 4 && this.status === 200) {
+                displayPublications(this.responseText);
+            }
+        };
+        xhr.open("POST", "../app/get_publications.php", true);
+        xhr.send(data);
+    }
+
+    // If default publication category is set
+    function defaultPublicationCategoryChoise() {
+        $("#publication-form").css("display", "none");
+        $("#publication").html("");
+    }
+
     // Add publication
     $("#add-publication").click(function () {
         let publication_category = $("#publication-category").val();
@@ -234,10 +267,83 @@ $(document).ready(function () {
             xhr.onreadystatechange = function () {
                 if (this.readyState === 4 && this.status === 200) {
                     displayPublications(this.responseText);
-                    clearPublicationForm();
+                    backToPublicationAddState();
                 }
             };
             xhr.open("POST", "../app/add_publication.php", true);
+            xhr.send(data);
+        }
+    });
+
+    // Delete publication
+    function deleteThisPublication(id) {
+        backToPublicationAddState();
+        let publication_category = $("#publication-category").val();
+        let data = {id: id, category: publication_category};
+        data = JSON.stringify(data);
+        console.log(data);
+        let xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function () {
+            if (this.readyState === 4 && this.status === 200) {
+                console.log(this.responseText);
+                displayPublications(this.responseText);
+            }
+        };
+        xhr.open("POST", "../app/delete_publication.php", true);
+        xhr.send(data);
+    }
+
+    // Edit chosen publication – insert data to form to edit them, change button to edit button
+    function editThisPublication(id) {
+        let author_for_editing = $("#author-" + id).html();
+        let year_for_editing = $("#year-" + id).html();
+        let title_for_editing = $("#title-" + id).html();
+        let isbn_for_editing = $("#isbn-" + id).html();
+        let link_for_editing = $("#link-" + id).html();
+        $("#author").val(author_for_editing);
+        $("#year").val(year_for_editing);
+        $("#title").val(title_for_editing);
+        $("#isbn").val(isbn_for_editing);
+        $("#link").val(link_for_editing);
+        $("#add-publication").css("display", "none");
+        $("#edit-publication").css("display", "block");
+        $("#edit-publication").attr("value", id);
+    }
+
+    // Edit publication after clicking on EDIT BUTTON
+    $("#edit-publication").click(function () {
+        let author = $("#author").val();
+        let year = $("#year").val();
+        let title = $("#title").val();
+        let edition = $("#edition").val();
+        let city = $("#city").val();
+        let publisher = $("#publisher").val();
+        let isbn = $("#isbn").val();
+        let link = $("#link").val();
+        let publication_category = $("#publication-category").val();
+        let publication_id = $("#edit-publication").attr("value");
+        if (author !== '' && year !== '' && title !== '') {
+            let data = {
+                author: author,
+                year: year,
+                title: title,
+                edition: edition,
+                city: city,
+                publisher: publisher,
+                isbn: isbn,
+                link: link,
+                publication_category: publication_category,
+                id: publication_id
+            };
+            data = JSON.stringify(data);
+            let xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function () {
+                if (this.readyState === 4 && this.status === 200) {
+                    displayPublications(this.responseText);
+                    backToPublicationAddState();
+                }
+            };
+            xhr.open("POST", "../app/edit_publication.php", true);
             xhr.send(data);
         }
     });
@@ -248,13 +354,62 @@ $(document).ready(function () {
         let publication_query = '';
         for (let i = publications_data.length - 1; i >= 0; i--) {
             publication_query += `
-
+        <div class="column">
+            <div class="publication">
+                <div class="publication-edit" id="${publications_data[i].id}">
+                    <i class="fa fa-edit"></i>
+                </div>
+                <div class="publication-page-box">
+                    <p>
+                    <a id="${'author-' + publications_data[i].id}">${publications_data[i].author}<a>. 
+                    <a id="${'year-' + publications_data[i].id}">${publications_data[i].publication_year}</a>. 
+                    <i class="publication-title" id="${'title-' + publications_data[i].id}">${publications_data[i].title}</i>. 
+                    ISBN: <a id="${'isbn-' + publications_data[i].id}">${publications_data[i].isbn}</a>
+                    </p><br>
+                    <a href="${publications_data[i].link}" class="publication-link" id="${'link-' + publications_data[i].id}">${publications_data[i].link}</a>
+                </div>
+                <div class="publication-delete" id="${publications_data[i].id}">
+                    <i class="fa fa-trash"></i>
+                </div>
+            </div>
+            <div class="delete-ensure publication-delete-ensure" id="${'publication-open-' + publications_data[i].id}" value="${publications_data[i].id}">
+                <div class="delete-ensure-button">
+                    <p>Smazat</p>
+                </div>
+            </div>
+        </div>
             `;
         }
+        console.log(publication_query);
+        $("#publication").html(publication_query);
+        $(".publication-edit").on("click", function () {
+            let id = $(this).attr('id');
+            if ($("#edit-publication").is(":visible")) {
+                backToPublicationAddState();
+            } else {
+                editThisPublication(id);
+                scrollUp();
+            }
+        });
+        $(".publication-delete").on("click", function () {
+            let id = $(this).attr('id');
+            if ($("#publication-open-" + id).is(":visible")) {
+                $("#publication-open-" + id).css("display", "none");
+            } else {
+                $("#publication-open-" + id).css("display", "block");
+            }
+        });
+        $(".publication-delete-ensure").on("click", function () {
+            let id = $(this).attr('value');
+            console.log(id);
+            console.log(typeof(id));
+            deleteThisPublication(id);
+        });
     }
 
-    // Clear publication form and hide it
-    function clearPublicationForm() {
+
+    // Make form default – add state of form
+    function backToPublicationAddState() {
         $("#author").val("");
         $("#year").val("");
         $("#title").val("");
@@ -264,6 +419,9 @@ $(document).ready(function () {
         $("#isbn").val("");
         $("#link").val("");
         $("#publication-alert").css("display", "none");
+        $("#edit-publication").css("display", "none");
+        $("#add-publication").css("display", "block");
     }
+
 
 });

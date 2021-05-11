@@ -1,4 +1,5 @@
 @charset "UTF-8";
+/* GENERAL */
 * {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -10,6 +11,57 @@ body {
   background-color: white;
 }
 
+.row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.row .column {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.row .column .delete-ensure {
+  display: none;
+  text-align: center;
+  margin-top: 10px;
+  width: 65%;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  position: relative;
+}
+
+.row .column .delete-ensure .delete-ensure-button {
+  height: 50px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  color: #a55ca8;
+  text-transform: uppercase;
+  background-color: rgba(203, 166, 228, 0.49);
+  width: 86%;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  position: relative;
+  cursor: pointer;
+}
+
+.row .column .delete-ensure .delete-ensure-button p {
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  position: relative;
+  font-size: 1.1rem;
+}
+
+/* End of General */
 /* NAVIGATION */
 nav {
   background-color: rgba(203, 166, 228, 0.49);
@@ -142,23 +194,7 @@ nav ul li a {
 
 /* End of Login Page */
 /* REFERENCE PAGE */
-.row {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-}
-
-.row .column {
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
-}
-
-.row .column .reference-box {
+.reference-box {
   width: 65%;
   position: relative;
   left: 50%;
@@ -167,13 +203,13 @@ nav ul li a {
   margin-top: 30px;
 }
 
-.row .column .reference-box .content {
+.reference-box .content {
   display: none;
   width: 100%;
   padding-top: 8px;
 }
 
-.row .column .reference-box .content .text textarea {
+.reference-box .content .text textarea {
   width: 100%;
   border: 2px solid #a55ca8;
   padding: 5px;
@@ -182,11 +218,11 @@ nav ul li a {
   letter-spacing: 1px;
 }
 
-.row .column .reference-box .content .text textarea:focus {
+.reference-box .content .text textarea:focus {
   outline: none;
 }
 
-.row .column .reference-box .content .name-and-button {
+.reference-box .content .name-and-button {
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -202,7 +238,7 @@ nav ul li a {
   gap: 8px;
 }
 
-.row .column .reference-box .content .name-and-button input {
+.reference-box .content .name-and-button input {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
@@ -213,11 +249,11 @@ nav ul li a {
   font-size: 16px;
 }
 
-.row .column .reference-box .content .name-and-button input:focus {
+.reference-box .content .name-and-button input:focus {
   outline: none;
 }
 
-.row .column .reference-box .content .name-and-button .add-button {
+.reference-box .content .name-and-button .add-button {
   display: block;
   -webkit-box-flex: 1;
       -ms-flex: 1;
@@ -233,7 +269,7 @@ nav ul li a {
   font-weight: 600;
 }
 
-.row .column .reference-box .content .name-and-button .edit-button {
+.reference-box .content .name-and-button .edit-button {
   display: none;
   -webkit-box-flex: 1;
       -ms-flex: 1;
@@ -249,7 +285,7 @@ nav ul li a {
   font-weight: 600;
 }
 
-.row .column .reference {
+.reference {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -265,48 +301,14 @@ nav ul li a {
   width: 65%;
 }
 
-.row .column .delete-ensure {
-  display: none;
-  text-align: center;
-  margin-top: 10px;
-  width: 65%;
-  left: 50%;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
-  position: relative;
-}
-
-.row .column .delete-ensure .delete-ensure-button {
-  height: 50px;
-  font-family: "Montserrat", sans-serif;
-  font-weight: 600;
-  color: #a55ca8;
-  text-transform: uppercase;
-  background-color: rgba(203, 166, 228, 0.49);
-  width: 86%;
-  left: 50%;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
-  position: relative;
-  cursor: pointer;
-}
-
-.row .column .delete-ensure .delete-ensure-button p {
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
-  position: relative;
-  font-size: 1.1rem;
-}
-
-.row .column .reference-edit {
+.reference .reference-edit {
   width: 7%;
   background-color: rgba(203, 166, 228, 0.49);
   cursor: pointer;
   margin-right: 5px;
 }
 
-.row .column .reference-edit .fa-edit {
+.reference .reference-edit .fa-edit {
   color: #a55ca8;
   font-size: 2rem;
   left: 50%;
@@ -316,7 +318,7 @@ nav ul li a {
   position: relative;
 }
 
-.row .column .reference-page-box {
+.reference .reference-page-box {
   width: 86%;
   background-color: rgba(203, 166, 228, 0.49);
   color: #a55ca8;
@@ -325,13 +327,13 @@ nav ul li a {
   line-height: 25px;
 }
 
-.row .column .reference-page-box .reference-page-text {
+.reference .reference-page-box .reference-page-text {
   quotes: "“" "”";
   text-align: justify;
   margin-bottom: 10px;
 }
 
-.row .column .reference-page-box .reference-page-text:before {
+.reference .reference-page-box .reference-page-text:before {
   content: open-quote;
   display: inline;
   line-height: 0;
@@ -342,14 +344,14 @@ nav ul li a {
   font-size: 3em;
 }
 
-.row .column .reference-delete {
+.reference .reference-delete {
   cursor: pointer;
   background-color: rgba(203, 166, 228, 0.49);
   width: 7%;
   margin-left: 5px;
 }
 
-.row .column .reference-delete .fa-trash {
+.reference .reference-delete .fa-trash {
   color: #a55ca8;
   font-size: 2rem;
   left: 50%;
@@ -359,7 +361,7 @@ nav ul li a {
   position: relative;
 }
 
-.row .column select {
+select {
   cursor: pointer;
   width: 100%;
   height: 52px;
@@ -372,7 +374,7 @@ nav ul li a {
   font-size: 1rem;
 }
 
-.row .column select:focus {
+select:focus {
   outline: none;
 }
 
@@ -386,6 +388,10 @@ nav ul li a {
           transform: translateX(-50%);
   margin-top: 30px;
   display: block;
+}
+
+.publication-box .publication-form {
+  display: none;
 }
 
 .publication-box input {
@@ -445,5 +451,68 @@ nav ul li a {
   border-left: 2px solid red;
   padding: 8px;
   font-family: "Montserrat", sans-serif;
+}
+
+.publication {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  position: relative;
+  margin-top: 30px;
+  width: 65%;
+}
+
+.publication .publication-edit {
+  width: 7%;
+  background-color: rgba(203, 166, 228, 0.49);
+  cursor: pointer;
+  margin-right: 5px;
+}
+
+.publication .publication-edit .fa-edit {
+  color: #a55ca8;
+  font-size: 2rem;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  position: relative;
+}
+
+.publication .publication-page-box {
+  width: 86%;
+  background-color: rgba(203, 166, 228, 0.49);
+  color: #a55ca8;
+  padding: 25px 25px 15px 25px;
+  font-family: "Montserrat", sans-serif;
+  line-height: 25px;
+}
+
+.publication .publication-page-box .publication-link {
+  color: #a55ca8;
+}
+
+.publication .publication-delete {
+  cursor: pointer;
+  background-color: rgba(203, 166, 228, 0.49);
+  width: 7%;
+  margin-left: 5px;
+}
+
+.publication .publication-delete .fa-trash {
+  color: #a55ca8;
+  font-size: 2rem;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  position: relative;
 }
 /*# sourceMappingURL=admin.css.map */

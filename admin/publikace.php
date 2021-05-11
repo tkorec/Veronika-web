@@ -40,7 +40,7 @@
 
     <div class="row">
         <div class="column">
-            <div class="reference-box">
+            <div class="publication-box">
                 <select name="" id="publication-category">
                     <option value="publication-category">Kategorie publikací</option>
                     <option value="academic-publication">Akademické publikace</option>
@@ -53,41 +53,48 @@
     <div class="row">
         <div class="column">
             <div class="publication-box">
-                <input list="author-list" type="text" name="author" id="author" placeholder="Autor" class="publication-content">
-                <datalist id="author-list">
-                    <option value="VERONIKA, Vitošková"></option>
-                </datalist>
-                <input type="text" name="year" id="year" placeholder="Rok publikace">
-                <input type="text" name="title" id="title" placeholder="Název titulu">
-                <input type="text" name="edition" id="edition" placeholder="Číslo edice">
-                <input type="text" name="city" id="city" placeholder="Město">
-                <input type="text" name="publisher" id="publisher" placeholder="Nakladatel">
-                <input type="text" name="isbn" id="isbn" placeholder="ISBN">
-                <input type="text" name="link" id="link" placeholder="Odkaz">
-                <div class="publication-alert" id="publication-alert">
-                    <p id="publication-alert-text">Jméno autora, rok vydání a titul jsou povinná pole.</p>
+                <div class="publication-form" id="publication-form">
+                    <input list="author-list" type="text" name="author" id="author" placeholder="Autor" class="publication-content">
+                    <datalist id="author-list">
+                        <option value="VERONIKA, Vitošková"></option>
+                    </datalist>
+                    <input type="text" name="year" id="year" placeholder="Rok publikace">
+                    <input type="text" name="title" id="title" placeholder="Název titulu">
+                    <input type="text" name="edition" id="edition" placeholder="Číslo edice">
+                    <input type="text" name="city" id="city" placeholder="Město">
+                    <input type="text" name="publisher" id="publisher" placeholder="Nakladatel">
+                    <input type="text" name="isbn" id="isbn" placeholder="ISBN">
+                    <input type="text" name="link" id="link" placeholder="Odkaz">
+                    <div class="publication-alert" id="publication-alert">
+                        <p id="publication-alert-text">Jméno autora, rok vydání a titul jsou povinná pole.</p>
+                    </div>
+                    <button type="button" id="add-publication" class="add-button">Přidat publikaci</button>
+                    <button type="button" id="edit-publication" class="edit-button">Editovat publikaci</button>
                 </div>
-                <button type="button" id="add-publication" class="add-button">Přidat publikaci</button>
-                <button type="button" id="edit-publication" class="edit-button">Editovat publikaci</button>
             </div>
         </div>
     </div>
 
     <div class="row" id="publication">
-        <div class="column">
+        <!--<div class="column">
             <div class="publication">
                 <div class="publication-edit">
                     <i class="fa fa-edit"></i>
                 </div>
                 <div class="publication-page-box">
-                    <p>VERONIKA, Vitošková. 2020. <a class="publication-title">Title</a>. ISBN: </p><br>
-                    <a href=""></a>
+                    <p>VERONIKA, Vitošková. 2020. <i class="publication-title">Title</i>. ISBN: </p><br>
+                    <a href="#" class="publication-link">Link</a>
                 </div>
                 <div class="publication-delete">
                     <i class="fa fa-trash"></i>
                 </div>
             </div>
-        </div>
+            <div class="delete-ensure">
+                <div class="delete-ensure-button">
+                    <p>Smazat</p>
+                </div>
+            </div>
+        </div> -->
     </div>
 
 
