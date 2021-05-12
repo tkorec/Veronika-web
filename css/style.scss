@@ -910,12 +910,6 @@ nav {
 }
 /* End of Contact Page */
 
-/* PUBLICATION PAGE */
-.row-one-publication img {
-    max-width: 100%;
-    height: 250px;
-}
-
 /* REFERENCE PAGE */
 .column-one-references {
     width: 100%;
@@ -960,6 +954,7 @@ nav {
     text-transform: uppercase;
     font-family: $montserrat;
     font-weight: 600;
+    height: 70px;
     padding: 25px 0;
     letter-spacing: 1px;
     cursor: pointer;
@@ -1058,3 +1053,66 @@ nav {
     }
 }
 /* End of Reference Page */
+
+/* PUBLICATION PAGE */
+.row-one-publication img {
+    max-width: 100%;
+    height: 250px;
+}
+
+.row-two-publications {
+    text-transform: uppercase;
+    font-family: $montserrat;
+    font-weight: 600;
+    height: 70px;
+    padding: 25px 0;
+    letter-spacing: 1px;
+    cursor: pointer;
+    background-color: white;
+    display: flex;
+    overflow-x: auto;
+    @media screen and (min-width: $mobile-breaking-point) {
+        justify-content: space-around;
+    }
+    .column-publications {
+        margin-left: 20px;
+        @media screen and (min-width: $mobile-breaking-point) {
+            margin-left: 0;
+        }
+        min-width: fit-content;
+        text-align: center;
+    }
+    p:hover {
+        @media screen and (min-width: $mobile-breaking-point) {
+            padding-bottom: 3px;
+            border-bottom: 2px solid black;
+        }
+    }
+}
+
+.publication-page-row {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    padding: 80px 0 80px 0;
+    .publication-page-column {
+        flex: 1;
+        .publication-page-box {
+            width: 85%;
+            @media screen and (min-width: $mobile-breaking-point) {
+                width: 50%;
+            }
+            left: 50%;
+            transform: translateX(-50%);
+            position: relative;
+            padding: 25px 25px 15px 25px;
+            line-height: 25px;
+            margin-bottom: 25px;
+            font-family: $montserrat;
+            .publication-link {
+                color: $font-color;
+            }
+        }
+    }
+}
+/* End of Publication Page */

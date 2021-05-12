@@ -167,6 +167,18 @@ $(document).ready(function () {
         }
     });
 
+    // Load default references
+    $("#reference-page-row").ready(function () {
+        let xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function () {
+            if (this.readyState === 4 && this.status === 200) {
+                displayDefaultReferences(this.responseText);
+            }
+        }
+        xhr.open("POST", "./app/get_default_references.php", true);
+        xhr.send();
+    });
+
     // Load references
     $(".reference-type").click(function () {
         let reference_type = $(this).attr("id");
@@ -181,6 +193,23 @@ $(document).ready(function () {
         xhr.open("POST", "./app/get_references.php", true);
         xhr.send(data);
     });
+
+    // Display default references
+    function displayDefaultReferences(references) {
+        let references_data = JSON.parse(references);
+        let references_query = '';
+        for (let i = references_data.length - 1; i >= 0; i--) {
+            references_query += `
+            <div class="reference-page-column">
+            <div class="reference-page-box">
+                <p class="reference-page-text">${references_data[i].reference}</p>
+                <i class="author">${references_data[i].referencer_name}</i>
+            </div>
+            </div>
+            `;
+        }
+        $("#reference-page-row").html(references_query);
+    } 
 
     // Display references and change title
     function displayReferencesAndChangeTitle(references, type) {
@@ -212,6 +241,40 @@ $(document).ready(function () {
         let new_title = previous_title.replace(previous_title, title);
         $("#reference-title").html(new_title);
     }
+
+    // Load default publications
+    $("#publication-page-row").ready(function () {
+        let xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function () {
+            if (this.readyState === 4 && this.status === 200) {
+                //displayPublications(this.responseText);
+                console.log(this.responseText);
+            }
+        }
+        xhr.open("POST", "./app/get_default_publications.php", true);
+        xhr.send();
+    });
+
+    // Display publications
+    /*function displayPublications(publications) {
+        let publications_data = JSON.parse(publications);
+        console.log(publications_data);
+        console.log(publications_data.length);
+        let new_publications_data = [];
+        let youngest_publication = publications_data[0];
+        console.log(youngest_publication);
+        while (publications_data.length !== 0) {
+            for (let i in publications_data) {
+                let youngest_year = parseInt(youngest_publication.year);
+                let year = parseInt(publications_data[i].year);
+                if (year > youngest_year) {
+                    youngest_year = publications_data[i];
+                }
+            }
+            new_publications_data.push(youngest_publication);
+        }
+        console.log(new_publications_data);
+    } */
 
     // Scroll up function
     $("#scroll-up").click(function () {
