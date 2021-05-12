@@ -29,8 +29,8 @@
                 <li class="logo"><a href="../index.html">Web</a></li>
             </div>
             <div class="nav-group">
-                <li class="item"><a href="">Publikace</a></li>
-                <li class="item"><a href="">Reference</a></li>
+                <li class="item"><a href="publikace.php">Publikace</a></li>
+                <li class="item"><a href="reference.php">Reference</a></li>
             </div>
             <div class="nav-group">
                 <li class="logout"><a href="">Odhlásit</a></li>

@@ -275,6 +275,37 @@ nav {
             }
         }
     }
+    .default-reference {
+        width: 90%;
+        background-color: $background-color;
+        color: $font-color;
+        padding: 25px 25px 15px 25px;
+        font-family: $montserrat;
+        line-height: 25px;
+        .default-reference-category {
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+        .default-reference-text {
+            margin-bottom: 10px;
+            text-align: justify;
+        }
+    }
+    .default-reference-check {
+        width: 10%;
+        background-color: $background-color;
+        margin-left: 5px;
+        .reference-checkbox {
+            left: 50%;
+            top: 45%;
+            transform: translateY(-55%);
+            transform: translateX(-50%);
+            position: relative;
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+        }
+    }
     .reference-delete {
         cursor: pointer;
         background-color: $background-color;

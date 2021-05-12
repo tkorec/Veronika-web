@@ -17,7 +17,7 @@ $category = htmlspecialchars($data['publication_category']);
 $id = htmlspecialchars($data['id']);
 
 // Update database
-$db->query($db, "UPDATE publications SET author = '$author', publication_year = '$year', title = '$title', city = '$city', publisher = '$publisher', edition_number = '$edition', isbn = '$isbn', link = '$link', category = '$category' WHERE id = '$id'");
+$db->query("UPDATE publications SET author = '$author', publication_year = '$year', title = '$title', city = '$city', publisher = '$publisher', edition_number = '$edition', isbn = '$isbn', link = '$link' WHERE id = '$id'");
 
 // Get publications from the database
 $sql = mysqli_query($db, "SELECT * FROM publications WHERE category = '$category'");

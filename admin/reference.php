@@ -29,8 +29,8 @@
                 <li class="logo"><a href="../index.html">Web</a></li>
             </div>
             <div class="nav-group">
-                <li class="item"><a href="">Publikace</a></li>
-                <li class="item"><a href="">Reference</a></li>
+                <li class="item"><a href="publikace.php">Publikace</a></li>
+                <li class="item"><a href="reference.php">Reference</a></li>
             </div>
             <div class="nav-group">
                 <li class="logout"><a href="">Odhlásit</a></li>
@@ -67,6 +67,7 @@
                 </div>
             </div>
         </div>
+
 
 
 
@@ -107,13 +108,28 @@
                     <i class="fa fa-trash"></i>
                 </div>
             </div>
-        </div> -->
+        </div> 
+    
+    
+    <div class="column">
+            <div class="reference">
+                <div class="default-reference">
+                    <p class="default-reference-category">Categorie</p>
+                    <p class="default-reference-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi voluptas id dolore, fuga in asperiores maxime ipsa labore laboriosam expedita repudiandae, eligendi commodi soluta aspernatur cumque pariatur ipsum reiciendis harum.</p>
+                    <i class="default-reference-author">Liza</i>
+                </div>
+                <div class="default-reference-check">
+                    <input type="checkbox" class="reference-checkbox">
+                </div>
+            </div>
+        </div>-->
+
 
 
     </div>
 
     <div class="row" id="row">
-
+        
     </div>
 
     <!-- Javascript -->

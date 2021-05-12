@@ -41,6 +41,7 @@ $(document).ready(function () {
         let xhr = new XMLHttpRequest();
         xhr.onreadystatechange = function () {
             if (this.readyState === 4 && this.status === 200) {
+                console.log(this.responseText);
                 displayAllReferences(this.responseText);
             }
         };
@@ -50,12 +51,57 @@ $(document).ready(function () {
 
     // Display all references
     function displayAllReferences(references) {
+        let reference_category = {
+            "individual-consultation": "Individuální konzultace",
+            "school-consultation": "Školní poradna", "courses": "Kurzy",
+            "seminars": "Semináře", "lectures": "Přednášky"
+        };
         let references_data = JSON.parse(references);
         let references_query = '';
         for (let i = references_data.length - 1; i >= 0; i--) {
-            references_query += ``;
+            references_query += `
+        <div class="column">
+            <div class="reference">
+                <div class="default-reference">
+                    <p class="default-reference-category">${reference_category[references_data[i].category]}</p>
+                    <p class="default-reference-text">${references_data[i].reference}</p>
+                    <i class="default-reference-author">${references_data[i].referencer_name}</i>
+                </div>
+                <div class="default-reference-check">
+                    <input type="checkbox" class="reference-checkbox" id="${references_data[i].id}">
+                </div>
+            </div>
+        </div>
+            `;
         }
+        $("#row").html(references_query);
+        for (let j = references_data.length - 1; j >= 0; j--) {
+            if (references_data[j].defaultly_displayed === '1') {
+                $("#" + references_data[j].id).prop("checked", true);
+            } else {
+                $("#" + references_data[j].id).prop("checked", false);
+            }
+        }
+        $(".reference-checkbox").click(function () {
+            let reference_value = $(this).prop("checked");
+            let reference_id = $(this).attr('id');
+            changeReferenceDisplayStatus(reference_id, reference_value);
+        });
+    }
 
+    // Change status of reference – if user clicks on a checkbox, check or uncheck the status
+    // and change it in database immediately
+    function changeReferenceDisplayStatus(id, value) {
+        let data = { id: id, value: value };
+        data = JSON.stringify(data);
+        let xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function () {
+            if (this.readyState === 4 && this.status === 200) {
+                displayAllReferences(this.responseText);
+            }
+        };
+        xhr.open("POST", "../app/change_reference_status.php", true);
+        xhr.send(data);
     }
 
     // Gained references of the certain category are displayed on the page
@@ -280,13 +326,14 @@ $(document).ready(function () {
         backToPublicationAddState();
         let publication_category = $("#publication-category").val();
         let data = {id: id, category: publication_category};
+        console.log(data);
         data = JSON.stringify(data);
         console.log(data);
         let xhr = new XMLHttpRequest();
         xhr.onreadystatechange = function () {
             if (this.readyState === 4 && this.status === 200) {
                 console.log(this.responseText);
-                displayPublications(this.responseText);
+                //displayPublications(this.responseText);
             }
         };
         xhr.open("POST", "../app/delete_publication.php", true);
