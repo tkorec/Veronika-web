@@ -75,26 +75,9 @@
         </div>
     </div>
 
+    <!-- Block / list of publications -->
     <div class="row" id="publication">
-        <!--<div class="column">
-            <div class="publication">
-                <div class="publication-edit">
-                    <i class="fa fa-edit"></i>
-                </div>
-                <div class="publication-page-box">
-                    <p>VERONIKA, Vitošková. 2020. <i class="publication-title">Title</i>. ISBN: </p><br>
-                    <a href="#" class="publication-link">Link</a>
-                </div>
-                <div class="publication-delete">
-                    <i class="fa fa-trash"></i>
-                </div>
-            </div>
-            <div class="delete-ensure">
-                <div class="delete-ensure-button">
-                    <p>Smazat</p>
-                </div>
-            </div>
-        </div> -->
+        
     </div>
 
 

@@ -209,7 +209,7 @@ $(document).ready(function () {
             `;
         }
         $("#reference-page-row").html(references_query);
-    } 
+    }
 
     // Display references and change title
     function displayReferencesAndChangeTitle(references, type) {
@@ -247,34 +247,89 @@ $(document).ready(function () {
         let xhr = new XMLHttpRequest();
         xhr.onreadystatechange = function () {
             if (this.readyState === 4 && this.status === 200) {
-                //displayPublications(this.responseText);
-                console.log(this.responseText);
+                console.log(JSON.parse(this.responseText));
+                sortPublications(this.responseText);
             }
         }
         xhr.open("POST", "./app/get_default_publications.php", true);
         xhr.send();
     });
 
-    // Display publications
-    /*function displayPublications(publications) {
+    // Load certain publications
+    $(".publication-type").click(function () {
+        let publication_type = $(this).attr("id");
+        let data = { category: publication_type };
+        data = JSON.stringify(data);
+        let xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function () {
+            if (this.readyState === 4 && this.status === 200) {
+                sortPublications(this.responseText);
+            }
+        }
+        xhr.open("POST", "./app/get_publications.php", true);
+        xhr.send(data);
+    });
+
+    // Sort publications by the year of publicastion
+    function sortPublications(publications) {
         let publications_data = JSON.parse(publications);
-        console.log(publications_data);
-        console.log(publications_data.length);
         let new_publications_data = [];
-        let youngest_publication = publications_data[0];
-        console.log(youngest_publication);
-        while (publications_data.length !== 0) {
-            for (let i in publications_data) {
-                let youngest_year = parseInt(youngest_publication.year);
-                let year = parseInt(publications_data[i].year);
+        let youngest_publication;
+        let youngest_publication_index;
+        const length = publications_data.length;
+        while (new_publications_data.length < length) {
+            youngest_publication = publications_data[0];
+            for (let j in publications_data) {
+                let youngest_year = parseInt(youngest_publication.publication_year);
+                let year = parseInt(publications_data[j].publication_year);
                 if (year > youngest_year) {
-                    youngest_year = publications_data[i];
+                    youngest_publication = publications_data[j];
+                    youngest_publication_index = publications_data.indexOf(youngest_publication);
                 }
             }
             new_publications_data.push(youngest_publication);
+            publications_data.splice(youngest_publication_index, 1);
         }
-        console.log(new_publications_data);
-    } */
+        displayPublication(new_publications_data);
+    }
+
+    // Display publications
+    function displayPublication(publication) {
+        let publication_data = publication;
+        let publication_query = '';
+        let edition = '';
+        let city_and_publisher = '';
+        let isbn = '';
+        for (let i in publication_data) {
+            if (publication_data[i].edition_number !== '') {
+                edition = publication_data[i].edition_number + 'edn. ';
+            }
+            if (publication_data[i].city !== '' || publication_data[i].publisher !== '') {
+                city_and_publisher = publication_data[i].city + publication_data[i].publisher + '. ';
+            } else if (publication_data[i].city !== '' && publication_data[i].publisher !== '') {
+                city_and_publisher = publication_data[i].city + ': ' + publication_data[i].publisher + '. ';
+            }
+            if (publication_data[i].isbn !== '') {
+                isbn = 'ISBN: ' + publication_data[i].isbn + '. ';
+            }
+            publication_query += `
+        <div class="publication-page-column">
+            <div class="publication-page-box">
+                <p class="publication-page-text">
+                    <a id="author">${publication_data[i].author + '. '}</a>
+                    <a id="year">${publication_data[i].publication_year + '. '}</a>
+                    <i id="title">${publication_data[i].title + '. '}</i>
+                    <a id="edition">${edition}</a>
+                    <a id="city-and-publisher">${city_and_publisher}</a>
+                    <a id="isbn">${isbn}</a>
+                </p>
+                <a href="${publication_data[i].link}" class="publication-link">${publication_data[i].link}</a>
+            </div>
+        </div>
+            `;
+        }
+        $("#publication-page-row").html(publication_query);
+    }
 
     // Scroll up function
     $("#scroll-up").click(function () {
