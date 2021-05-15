@@ -41,7 +41,6 @@ $(document).ready(function () {
         let xhr = new XMLHttpRequest();
         xhr.onreadystatechange = function () {
             if (this.readyState === 4 && this.status === 200) {
-                console.log(this.responseText);
                 displayAllReferences(this.responseText);
             }
         };
@@ -264,9 +263,9 @@ $(document).ready(function () {
         let data = { category: publication_category_value };
         data = JSON.stringify(data);
         let xhr = new XMLHttpRequest();
-        xhr.onreadystatechange = function() {
+        xhr.onreadystatechange = function () {
             if (this.readyState === 4 && this.status === 200) {
-                displayPublications(this.responseText);
+                sortPublications(this.responseText);
             }
         };
         xhr.open("POST", "../app/get_publications.php", true);
@@ -312,7 +311,7 @@ $(document).ready(function () {
             let xhr = new XMLHttpRequest();
             xhr.onreadystatechange = function () {
                 if (this.readyState === 4 && this.status === 200) {
-                    displayPublications(this.responseText);
+                    sortPublications(this.responseText);
                     backToPublicationAddState();
                 }
             };
@@ -325,15 +324,12 @@ $(document).ready(function () {
     function deleteThisPublication(id) {
         backToPublicationAddState();
         let publication_category = $("#publication-category").val();
-        let data = {id: id, category: publication_category};
-        console.log(data);
+        let data = { id: id, category: publication_category };
         data = JSON.stringify(data);
-        console.log(data);
         let xhr = new XMLHttpRequest();
         xhr.onreadystatechange = function () {
             if (this.readyState === 4 && this.status === 200) {
-                console.log(this.responseText);
-                //displayPublications(this.responseText);
+                sortPublications(this.responseText);
             }
         };
         xhr.open("POST", "../app/delete_publication.php", true);
@@ -342,14 +338,20 @@ $(document).ready(function () {
 
     // Edit chosen publication – insert data to form to edit them, change button to edit button
     function editThisPublication(id) {
-        let author_for_editing = $("#author-" + id).html();
-        let year_for_editing = $("#year-" + id).html();
-        let title_for_editing = $("#title-" + id).html();
-        let isbn_for_editing = $("#isbn-" + id).html();
+        let author_for_editing = $("#author-" + id).attr("value");
+        let year_for_editing = $("#year-" + id).attr("value");
+        let title_for_editing = $("#title-" + id).attr("value");
+        let edition_for_editing = $("#edition-" + id).attr("value");
+        let city_for_editing = $("#city-" + id).attr("value");
+        let publisher_for_editing = $("#publisher-" + id).attr("value");
+        let isbn_for_editing = $("#isbn-" + id).attr("value");
         let link_for_editing = $("#link-" + id).html();
         $("#author").val(author_for_editing);
         $("#year").val(year_for_editing);
         $("#title").val(title_for_editing);
+        $("#edition").val(edition_for_editing);
+        $("#city").val(city_for_editing);
+        $("#publisher").val(publisher_for_editing);
         $("#isbn").val(isbn_for_editing);
         $("#link").val(link_for_editing);
         $("#add-publication").css("display", "none");
@@ -386,7 +388,7 @@ $(document).ready(function () {
             let xhr = new XMLHttpRequest();
             xhr.onreadystatechange = function () {
                 if (this.readyState === 4 && this.status === 200) {
-                    displayPublications(this.responseText);
+                    sortPublications(this.responseText);
                     backToPublicationAddState();
                 }
             };
@@ -395,11 +397,48 @@ $(document).ready(function () {
         }
     });
 
+    // Sort publications
+    function sortPublications(publications) {
+        let publications_data = JSON.parse(publications);
+        let new_publications_data = [];
+        let youngest_publication;
+        let youngest_publication_index;
+        const length = publications_data.length;
+        while (new_publications_data.length < length) {
+            youngest_publication = publications_data[0];
+            for (let j in publications_data) {
+                let youngest_year = parseInt(youngest_publication.publication_year);
+                let year = parseInt(publications_data[j].publication_year);
+                if (year > youngest_year) {
+                    youngest_publication = publications_data[j];
+                }
+            }
+            youngest_publication_index = publications_data.indexOf(youngest_publication);
+            new_publications_data.push(youngest_publication);
+            publications_data.splice(youngest_publication_index, 1);
+        }
+        displayPublications(new_publications_data);
+    }
+
     // Display publications
     function displayPublications(publications) {
-        let publications_data = JSON.parse(publications);
+        let publications_data = publications;
         let publication_query = '';
-        for (let i = publications_data.length - 1; i >= 0; i--) {
+        for (let i in publications_data) {
+            let edition = '';
+            let city = '';
+            let publisher = '';
+            if (publications_data[i].edition_number !== '') {
+                edition = publications_data[i].edition_number + ' edn. ';
+            }
+            if (publications_data[i].city !== '' && publications_data[i].publisher === '') {
+                city = publications_data[i].city + '. ';
+            } else if (publications_data[i].city !== '' && publications_data[i].publisher !== '') {
+                city = publications_data[i].city + ': ';  
+            }
+            if (publications_data[i].publisher !== '') {
+                publisher = publications_data[i].publisher + '. ';
+            }
             publication_query += `
         <div class="column">
             <div class="publication">
@@ -408,12 +447,15 @@ $(document).ready(function () {
                 </div>
                 <div class="publication-page-box">
                     <p>
-                    <a id="${'author-' + publications_data[i].id}">${publications_data[i].author}<a>. 
-                    <a id="${'year-' + publications_data[i].id}">${publications_data[i].publication_year}</a>. 
-                    <i class="publication-title" id="${'title-' + publications_data[i].id}">${publications_data[i].title}</i>. 
-                    ISBN: <a id="${'isbn-' + publications_data[i].id}">${publications_data[i].isbn}</a>
-                    </p><br>
-                    <a href="${publications_data[i].link}" class="publication-link" id="${'link-' + publications_data[i].id}">${publications_data[i].link}</a>
+                    <a id="${'author-' + publications_data[i].id}" value="${publications_data[i].author}">${publications_data[i].author + '. '}<a> 
+                    <a id="${'year-' + publications_data[i].id}" value="${publications_data[i].publication_year}">${publications_data[i].publication_year + '. '}</a> 
+                    <i class="publication-title" id="${'title-' + publications_data[i].id}" value="${publications_data[i].title}">${publications_data[i].title + '. '}</i>
+                    <a id="${'edition-' + publications_data[i].id}" value="${publications_data[i].edition_number}">${edition}</a>
+                    <a id="${'city-' + publications_data[i].id}" value="${publications_data[i].city}">${city}</a>
+                    <a id="${'publisher-' + publications_data[i].id}" value="${publications_data[i].publisher}">${publisher}</a>
+                    <a id="${'isbn-' + publications_data[i].id}" value="${publications_data[i].isbn}">${'ISBN: ' + publications_data[i].isbn}</a>
+                    </p>
+                    <a href="${publications_data[i].link}" target="_blank" class="publication-link" id="${'link-' + publications_data[i].id}">${publications_data[i].link}</a>
                 </div>
                 <div class="publication-delete" id="${publications_data[i].id}">
                     <i class="fa fa-trash"></i>
@@ -427,7 +469,6 @@ $(document).ready(function () {
         </div>
             `;
         }
-        console.log(publication_query);
         $("#publication").html(publication_query);
         $(".publication-edit").on("click", function () {
             let id = $(this).attr('id');
@@ -448,8 +489,6 @@ $(document).ready(function () {
         });
         $(".publication-delete-ensure").on("click", function () {
             let id = $(this).attr('value');
-            console.log(id);
-            console.log(typeof(id));
             deleteThisPublication(id);
         });
     }

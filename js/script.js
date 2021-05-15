@@ -284,9 +284,9 @@ $(document).ready(function () {
                 let year = parseInt(publications_data[j].publication_year);
                 if (year > youngest_year) {
                     youngest_publication = publications_data[j];
-                    youngest_publication_index = publications_data.indexOf(youngest_publication);
                 }
             }
+            youngest_publication_index = publications_data.indexOf(youngest_publication);
             new_publications_data.push(youngest_publication);
             publications_data.splice(youngest_publication_index, 1);
         }
@@ -297,14 +297,14 @@ $(document).ready(function () {
     function displayPublication(publication) {
         let publication_data = publication;
         let publication_query = '';
-        let edition = '';
-        let city_and_publisher = '';
-        let isbn = '';
         for (let i in publication_data) {
+            let edition = '';
+            let city_and_publisher = '';
+            let isbn = '';
             if (publication_data[i].edition_number !== '') {
-                edition = publication_data[i].edition_number + 'edn. ';
+                edition = publication_data[i].edition_number + ' edn. ';
             }
-            if (publication_data[i].city !== '' || publication_data[i].publisher !== '') {
+            if ((publication_data[i].city !== '' && publication_data[i].publisher === '') || (publication_data[i].city === '' && publication_data[i].publisher !== '')) {
                 city_and_publisher = publication_data[i].city + publication_data[i].publisher + '. ';
             } else if (publication_data[i].city !== '' && publication_data[i].publisher !== '') {
                 city_and_publisher = publication_data[i].city + ': ' + publication_data[i].publisher + '. ';
@@ -323,7 +323,7 @@ $(document).ready(function () {
                     <a id="city-and-publisher">${city_and_publisher}</a>
                     <a id="isbn">${isbn}</a>
                 </p>
-                <a href="${publication_data[i].link}" class="publication-link">${publication_data[i].link}</a>
+                <a href="${publication_data[i].link}" target="_blank" class="publication-link">${publication_data[i].link}</a>
             </div>
         </div>
             `;
