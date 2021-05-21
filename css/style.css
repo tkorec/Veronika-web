@@ -913,6 +913,9 @@ nav ul .toggle .bars::after {
 .column-about-one-right .column-about-right-one-content {
   font-family: "Montserrat", sans-serif;
   margin: 25px 0;
+  text-align: center;
+  font-size: 1.5rem;
+  line-height: 39px;
 }
 
 @media screen and (min-width: 855px) {
@@ -931,7 +934,13 @@ nav ul .toggle .bars::after {
 .row-about-two {
   background-color: white;
   height: auto;
-  padding: 100px 0 100px 0;
+  padding: 100px 0;
+}
+
+@media screen and (min-width: 855px) {
+  .row-about-two {
+    padding: 100px 0 100px 0;
+  }
 }
 
 .row-about-two .column-about-two-content {
@@ -942,7 +951,13 @@ nav ul .toggle .bars::after {
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
   position: relative;
-  width: 65%;
+  width: 80%;
+}
+
+@media screen and (min-width: 855px) {
+  .row-about-two .column-about-two-content {
+    width: 65%;
+  }
 }
 
 .row-about-two .column-about-two-content h2 {
@@ -1591,6 +1606,7 @@ nav ul .toggle .bars::after {
   line-height: 25px;
   margin-bottom: 25px;
   font-family: "Montserrat", sans-serif;
+  text-align: center;
 }
 
 @media screen and (min-width: 855px) {
@@ -1601,6 +1617,27 @@ nav ul .toggle .bars::after {
 
 .publication-page-row .publication-page-column .publication-page-box .publication-link {
   color: #a55ca8;
+}
+
+.publication-page-row .publication-page-column .publication-link {
+  display: none;
+}
+
+@media screen and (min-width: 855px) {
+  .publication-page-row .publication-page-column .publication-link {
+    display: block;
+  }
+}
+
+.publication-page-row .publication-page-column .publication-link-shorten {
+  color: #a55ca8;
+  display: block;
+}
+
+@media screen and (min-width: 855px) {
+  .publication-page-row .publication-page-column .publication-link-shorten {
+    display: none;
+  }
 }
 
 /* End of Publication Page */

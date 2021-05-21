@@ -665,6 +665,9 @@ nav {
     .column-about-right-one-content {
         font-family: $montserrat;
         margin: 25px 0;
+        text-align: center;
+        font-size: 1.5rem;
+        line-height: 39px;
         @media screen and (min-width: $mobile-breaking-point) {
             position: absolute;
             top: 50%;
@@ -680,7 +683,10 @@ nav {
 .row-about-two {
     background-color: white;
     height: auto;
-    padding: 100px 0 100px 0;
+    padding: 100px 0;
+    @media screen and (min-width: $mobile-breaking-point) {
+        padding: 100px 0 100px 0;
+    }
     .column-about-two-content {
         font-family: $montserrat;
         line-height: 25px;
@@ -688,7 +694,10 @@ nav {
         left: 50%;
         transform: translateX(-50%);
         position: relative;
-        width: 65%;
+        width: 80%;
+        @media screen and (min-width: $mobile-breaking-point) {
+            width: 65%;
+        }
         h2 {
             text-align: center;
             margin-bottom: 30px;
@@ -1109,8 +1118,22 @@ nav {
             line-height: 25px;
             margin-bottom: 25px;
             font-family: $montserrat;
+            text-align: center;
             .publication-link {
                 color: $font-color;
+            }
+        }
+        .publication-link {
+            display: none;
+            @media screen and (min-width: $mobile-breaking-point) {
+                display: block;
+            }
+        }
+        .publication-link-shorten {
+            color: $font-color;
+            display: block;
+            @media screen and (min-width: $mobile-breaking-point) {
+                display: none;
             }
         }
     }

@@ -29,8 +29,8 @@ $(document).ready(function () {
         let alert_notification = $("#alert");
         let alert_text = $("#alert-text").html();
         let previous_alert_text = alert_text;
-        if (email === '') {
-            error_message += 'Je potřeba vyplnit email!';
+        if (email === '' || phone === '') {
+            error_message += 'Email a telefon jsou povinné!';
             error = true;
         }
         if (email !== '' && valid_email === false) {
@@ -105,8 +105,8 @@ $(document).ready(function () {
         let alert_notification = $("#form-alert");
         let alert_text = $("#form-alert-text").html();
         let previous_alert_text = alert_text;
-        if (email_address === '') {
-            error_message += 'Je potřeba vyplnit email!';
+        if (email_address === '' || phone_number === '') {
+            error_message += 'Email a telefon jsou povinné!';
             error = true;
         }
         if (email_address !== '' && valid_email_address === false) {
@@ -324,6 +324,7 @@ $(document).ready(function () {
                     <a id="isbn">${isbn}</a>
                 </p>
                 <a href="${publication_data[i].link}" target="_blank" class="publication-link">${publication_data[i].link}</a>
+                <a href="${publication_data[i].link}" target="_blank" class="publication-link-shorten">Odkaz na článek</a>
             </div>
         </div>
             `;
