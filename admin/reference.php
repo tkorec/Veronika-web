@@ -1,3 +1,15 @@
+<?php
+require_once '../app/core/init.php';
+session_start();
+
+$current_token = $_COOKIE['token'];
+$sql = mysqli_query($db, "SELECT * FROM users WHERE token = '$current_token'");
+$token_count = mysqli_num_rows($sql);
+if ($token_count < 1) {
+    header('Location: http://localhost:8888/Veronika/admin/login.php');
+}
+?>
+
 <!DOCTYPE html>
 <html lang="cs-cz">
 
@@ -33,7 +45,7 @@
                 <li class="item"><a href="reference.php">Reference</a></li>
             </div>
             <div class="nav-group">
-                <li class="logout"><a href="">Odhlásit</a></li>
+                <li class="logout"><a href="logout.php">Odhlásit</a></li>
             </div>
         </ul>
     </nav>
@@ -67,69 +79,10 @@
                 </div>
             </div>
         </div>
-
-
-
-
-        <!--<div class="column">
-            <div class="reference">
-                <div class="reference-edit">
-                    <i class="fa fa-edit"></i>
-                </div>
-                <div class="reference-page-box">
-                    <p class="reference-page-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Id eligendi
-                        totam, aliquam magnam amet quos provident quibusdam ullam tenetur doloremque veniam, error quo
-                        consequuntur dolor cumque! Eius quisquam placeat ea.</p>
-                    <i class="author">— Learned Hand</i>
-                </div>
-                <div class="reference-delete">
-                    <i class="fa fa-trash"></i>
-                </div>
-            </div>
-            <div class="delete-ensure">
-                <div class="delete-ensure-button">
-                    <p>Smazat</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="column">
-            <div class="reference">
-                <div class="reference-edit">
-                    <i class="fa fa-edit"></i>
-                </div>
-                <div class="reference-page-box">
-                    <p class="reference-page-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Id eligendi
-                        totam, aliquam magnam amet quos provident quibusdam ullam tenetur doloremque veniam, error quo
-                        consequuntur dolor cumque! Eius quisquam placeat ea.</p>
-                    <i class="author">— Learned Hand</i>
-                </div>
-                <div class="reference-delete">
-                    <i class="fa fa-trash"></i>
-                </div>
-            </div>
-        </div> 
-    
-    
-    <div class="column">
-            <div class="reference">
-                <div class="default-reference">
-                    <p class="default-reference-category">Categorie</p>
-                    <p class="default-reference-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi voluptas id dolore, fuga in asperiores maxime ipsa labore laboriosam expedita repudiandae, eligendi commodi soluta aspernatur cumque pariatur ipsum reiciendis harum.</p>
-                    <i class="default-reference-author">Liza</i>
-                </div>
-                <div class="default-reference-check">
-                    <input type="checkbox" class="reference-checkbox">
-                </div>
-            </div>
-        </div>-->
-
-
-
     </div>
 
     <div class="row" id="row">
-        
+
     </div>
 
     <!-- Javascript -->

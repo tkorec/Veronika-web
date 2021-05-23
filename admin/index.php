@@ -1,3 +1,15 @@
+<?php
+require_once '../app/core/init.php';
+session_start();
+
+$current_token = $_COOKIE['token'];
+$sql = mysqli_query($db, "SELECT * FROM users WHERE token = '$current_token'");
+$token_count = mysqli_num_rows($sql);
+if ($token_count < 1) {
+    header('Location: http://localhost:8888/Veronika/admin/login.php');
+}
+?>
+
 <!DOCTYPE html>
 <html lang="cs-cz">
 
@@ -29,19 +41,14 @@
                 <li class="logo"><a href="">Web</a></li>
             </div>
             <div class="nav-group">
-                <li class="item"><a href="">Publikace</a></li>
-                <li class="item"><a href="">Reference</a></li>
+                <li class="item"><a href="publikace.php">Publikace</a></li>
+                <li class="item"><a href="reference.php">Reference</a></li>
             </div>
             <div class="nav-group">
-                <li class="logout"><a href="">Odhlásit</a></li>
+                <li class="logout"><a href="logout.php">Odhlásit</a></li>
             </div>
         </ul>
     </nav>
-
-    <!-- Successfull loggin -->
-    <!--<div class="successfull-loggin">
-        <h1>Vítej<br>přihlášení bylo úspěšné</h1>
-    </div> -->
 </body>
 
 </html>

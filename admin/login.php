@@ -22,7 +22,7 @@
 <body class="loggin-form-body">
 
     <!-- Loggin form -->
-    <form action="" class="loggin-form">
+    <form form="POST" class="loggin-form">
         <div class="loggin-item">
             <label for="admin-name">Uživatelské jméno / email</label><br>
             <input type="text" name="admin-name" id="admin-name">
@@ -34,10 +34,15 @@
         <div class="loggin-alert" id="loggin-alert">
             <p class="loggin-alert-message" id="loggin-alert-message">Administrátorovy údaje nebyly rozpoznány</p>
         </div>
-        <div class="button">
+        <div class="button" id="login">
             <p>Log in</p>
+        </div>
+        <div class="login-back-to-mainpage">
+            <a href="http://localhost:8888/Veronika">Zpět na hlavní stránku</a>
         </div>
     </form>
     
+    <!-- Javascript -->
+    <script src="../js/admin.js"></script>
 </body>
 </html>

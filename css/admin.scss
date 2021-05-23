@@ -156,6 +156,15 @@ nav {
             color: red;
         }
     }
+    .login-back-to-mainpage {
+        text-align: right;
+        padding-top: 10px;
+        a {
+            font-family: $montserrat;
+            color: white;
+            text-decoration: none;
+        }
+    }
 }
 /* End of Login Page */
 

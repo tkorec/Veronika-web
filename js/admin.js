@@ -434,7 +434,7 @@ $(document).ready(function () {
             if (publications_data[i].city !== '' && publications_data[i].publisher === '') {
                 city = publications_data[i].city + '. ';
             } else if (publications_data[i].city !== '' && publications_data[i].publisher !== '') {
-                city = publications_data[i].city + ': ';  
+                city = publications_data[i].city + ': ';
             }
             if (publications_data[i].publisher !== '') {
                 publisher = publications_data[i].publisher + '. ';
@@ -509,5 +509,53 @@ $(document).ready(function () {
         $("#add-publication").css("display", "block");
     }
 
+    // Send Login Data
+    $("#login").click(function () {
+        let admin_name = $("#admin-name").val();
+        let admin_password = $("#admin-password").val();
+        let error_message = '';
+        let error = false;
+        if (admin_name === '' || admin_password === '') {
+            error_message += 'Jméno/mail a heslo jsou povinné';
+            error = true;
+        }
+        if (error === true) {
+            $("#loggin-alert-message").html(error_message);
+            $("#loggin-alert").css("display", "block");
+        } else {
+            let access_data = { name: admin_name, password: admin_password };
+            access_data = JSON.stringify(access_data);
+            let xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function () {
+                if (this.readyState === 4 && this.status === 200) {
+                    logIn(this.responseText);
+                }
+            };
+            xhr.open("POST", "../app/login.php", true);
+            xhr.send(access_data);
+        }
+
+    });
+
+    // Was login successfull?
+    function logIn(login_status) {
+        let login_data = JSON.parse(login_status);
+        console.log(login_data['status']);
+        console.log(typeof (login_data['status']));
+        console.log(login_data['token']);
+        let status = login_data['status'];
+        let token = login_data['token'];
+        if (status === 'true') {
+            let date = new Date();
+            date.setTime(date.getTime() + (1 * 0.25 * 60 * 60 * 1000));
+            const expires = "expires=" + date.toUTCString();
+            document.cookie = "token=" + token + "; " + expires;
+            location.replace('../admin/index.php');
+        } else {
+            let unknown_user = 'Jméno/email nebo heslo nebyli rozpoznány';
+            $("#loggin-alert-message").html(unknown_user);
+            $("#loggin-alert").css("display", "block");
+        }
+    }
 
 });

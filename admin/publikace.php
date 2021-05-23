@@ -1,3 +1,15 @@
+<?php 
+require_once '../app/core/init.php';
+session_start();
+
+$current_token = $_COOKIE['token'];
+$sql = mysqli_query($db, "SELECT * FROM users WHERE token = '$current_token'");
+$token_count = mysqli_num_rows($sql);
+if ($token_count < 1) {
+    header('Location: http://localhost:8888/Veronika/admin/login.php');
+}
+?>
+
 <!DOCTYPE html>
 <html lang="cs-cz">
 
@@ -33,7 +45,7 @@
                 <li class="item"><a href="reference.php">Reference</a></li>
             </div>
             <div class="nav-group">
-                <li class="logout"><a href="">Odhlásit</a></li>
+                <li class="logout"><a href="logout.php">Odhlásit</a></li>
             </div>
         </ul>
     </nav>

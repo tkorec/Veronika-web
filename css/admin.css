@@ -192,6 +192,17 @@ nav ul li a {
   color: red;
 }
 
+.loggin-form .login-back-to-mainpage {
+  text-align: right;
+  padding-top: 10px;
+}
+
+.loggin-form .login-back-to-mainpage a {
+  font-family: "Montserrat", sans-serif;
+  color: white;
+  text-decoration: none;
+}
+
 /* End of Login Page */
 /* REFERENCE PAGE */
 .reference-box {
